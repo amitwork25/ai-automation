@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+import cors from "@fastify/cors";
 import multipart from "@fastify/multipart";
 import path from "node:path";
 
@@ -20,6 +21,10 @@ export async function createApp() {
   const frameworkConfig = loadFrameworkConfig();
   const serverConfig = loadServerConfig();
   const app = Fastify({ logger: true });
+  await app.register(cors, {
+    origin: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+  });
   await app.register(multipart, {
     limits: {
       fileSize: 15 * 1024 * 1024,

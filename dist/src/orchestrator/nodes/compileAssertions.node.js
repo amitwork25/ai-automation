@@ -19,7 +19,9 @@ export async function compileAssertionsNode(state, artifactStore) {
         },
         flags: {
             unmappedRuleCount: state.flags?.unmappedRuleCount ?? 0,
-            pendingCustomCount: report.pendingCustom.length
+            pendingCustomCount: report.pendingCustom.length,
+            linkerLlmInvoked: state.flags?.linkerLlmInvoked ?? false,
+            serviceTestLlmInvoked: state.flags?.serviceTestLlmInvoked ?? false
         }
     };
 }

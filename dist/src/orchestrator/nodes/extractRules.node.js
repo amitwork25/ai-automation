@@ -15,7 +15,10 @@ export async function extractRulesNode(state, artifactStore) {
             [artifactName]: artifactPath
         },
         flags: {
-            unmappedRuleCount: businessRules.unmappedRules.length
+            unmappedRuleCount: businessRules.unmappedRules.length,
+            pendingCustomCount: state.flags?.pendingCustomCount ?? 0,
+            linkerLlmInvoked: state.flags?.linkerLlmInvoked ?? false,
+            serviceTestLlmInvoked: state.flags?.serviceTestLlmInvoked ?? false
         }
     };
 }

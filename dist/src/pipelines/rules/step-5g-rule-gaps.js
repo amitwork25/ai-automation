@@ -1,3 +1,7 @@
+import { resolveLlmProvider } from "../../config/llm.config.js";
+function reportProvider() {
+    return resolveLlmProvider();
+}
 function applyResolution(rule, resolution) {
     if (resolution.parseStatus !== "parsed") {
         return rule;
@@ -31,7 +35,7 @@ export async function step5gRuleGaps(input) {
             report: {
                 schemaVersion: "05g-rule-gaps-report-v1",
                 productId: input.productId,
-                provider: process.env.OPENAI_API_KEY ? "openai" : "heuristic",
+                provider: reportProvider(),
                 inputCount: 0,
                 resolvedCount: 0,
                 remainingCount: 0,
@@ -88,7 +92,7 @@ export async function step5gRuleGaps(input) {
         report: {
             schemaVersion: "05g-rule-gaps-report-v1",
             productId: input.productId,
-            provider: process.env.OPENAI_API_KEY ? "openai" : "heuristic",
+            provider: reportProvider(),
             inputCount: unmappedRules.length,
             resolvedCount: resolutions.filter((resolution) => resolution.parseStatus === "parsed").length,
             remainingCount: remainingUnmapped.length,

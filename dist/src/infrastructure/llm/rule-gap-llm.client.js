@@ -1,3 +1,6 @@
+import { loadLlmConfig } from "../../config/llm.config.js";
+import { callGeminiJsonChatWithFallback } from "./gemini-json.client.js";
+import { loadLlmSystemPrompt } from "./load-llm-prompt.js";
 const UI_ONLY_PATTERN = /lands on|entry is available|can start the journey|screen loads|open the app|dashboard|navigation|without already having/i;
 const ASSERT_FN_PATTERN = /\b(assert[A-Z][A-Za-z0-9_]*)\b/;
 function hitsForRule(input, rule) {
@@ -61,6 +64,29 @@ export class HeuristicRuleGapLlmClient {
         });
     }
 }
+export class GeminiRuleGapLlmClient {
+    apiKey;
+    model;
+    constructor(apiKey, model) {
+        this.apiKey = apiKey;
+        this.model = model;
+    }
+    async resolveRuleGaps(input) {
+        const prompt = {
+            productId: input.productId,
+            unmappedRules: input.unmappedRules,
+            retrievalContext: input.retrievalContext?.slice(0, 20)
+        };
+        const { data } = await callGeminiJsonChatWithFallback({
+            apiKey: this.apiKey,
+            model: this.model,
+            system: loadLlmSystemPrompt(),
+            user: JSON.stringify({ task: "step-5g-rule-gaps", ...prompt })
+        });
+        const parsed = data;
+        return parsed.resolutions ?? [];
+    }
+}
 export class OpenAiRuleGapLlmClient {
     apiKey;
     model;
@@ -87,11 +113,11 @@ export class OpenAiRuleGapLlmClient {
                 messages: [
                     {
                         role: "system",
-                        content: "Convert unresolved manual test expected results into structured business rules. Return JSON: { resolutions: RuleGapResolution[] } where each item has caseId, manualStepIndex, text, layer (journey|service|non_automatable), optional path, op, expected, assertFn, parseStatus (parsed|unmapped), reason."
+                        content: loadLlmSystemPrompt()
                     },
                     {
                         role: "user",
-                        content: JSON.stringify(prompt)
+                        content: JSON.stringify({ task: "step-5g-rule-gaps", ...prompt })
                     }
                 ]
             })
@@ -109,9 +135,12 @@ export class OpenAiRuleGapLlmClient {
     }
 }
 export function createRuleGapLlmClient() {
-    const apiKey = process.env.OPENAI_API_KEY?.trim();
-    if (apiKey) {
-        return new OpenAiRuleGapLlmClient(apiKey);
+    const config = loadLlmConfig();
+    if (config.provider === "gemini" && config.geminiApiKey) {
+        return new GeminiRuleGapLlmClient(config.geminiApiKey, config.geminiModel);
+    }
+    if (config.provider === "openai" && config.openaiApiKey) {
+        return new OpenAiRuleGapLlmClient(config.openaiApiKey, config.openaiModel);
     }
     return new HeuristicRuleGapLlmClient();
 }

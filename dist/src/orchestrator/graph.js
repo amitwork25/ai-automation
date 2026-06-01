@@ -18,10 +18,13 @@ import { reviewRunNode } from "./nodes/reviewRun.node.js";
 import { repoIndexNode } from "./nodes/repoIndex.node.js";
 import { rulesLlmGapsNode } from "./nodes/rulesLlmGaps.node.js";
 import { serviceTestCodegenNode } from "./nodes/serviceTestCodegen.node.js";
+import { serviceTestLlmEnrichNode } from "./nodes/serviceTestLlmEnrich.node.js";
+import { llmSummaryNode } from "./nodes/llmSummary.node.js";
 import { traceabilityNode } from "./nodes/traceability.node.js";
 import { validateRunNode } from "./nodes/validateRun.node.js";
 import { vectorIndexNode } from "./nodes/vectorIndex.node.js";
 import { vectorRetrieveNode } from "./nodes/vectorRetrieve.node.js";
+import { includeApiLayer, includeJourneyLayer, parseAutomationCodegenMode } from "../config/automation-codegen-mode.js";
 const RunStateAnnotation = Annotation.Root({
     runId: (Annotation),
     productId: (Annotation),
@@ -39,6 +42,12 @@ function shouldRunRuleGaps(state) {
 function shouldRunCustomAsserts(state) {
     return (state.flags?.pendingCustomCount ?? 0) > 0;
 }
+function shouldEnrichServiceTests(state) {
+    return state.inputs.llmProfile !== "minimal";
+}
+function automationCodegenMode(state) {
+    return parseAutomationCodegenMode(state.inputs.automationCodegenMode);
+}
 export function createRunGraph(deps) {
     const graph = new StateGraph(RunStateAnnotation)
         .addNode("bootstrap", async (state) => {
@@ -51,6 +60,7 @@ export function createRunGraph(deps) {
             productId: state.productId,
             repoRoot: state.repoRoot,
             codegenRoot,
+            automationCodegenMode: automationCodegenMode(state),
             createdAt: new Date().toISOString()
         });
         return {
@@ -73,6 +83,7 @@ export function createRunGraph(deps) {
         .addNode("mapRules", async (state) => mapRulesNode(state, deps.artifactStore))
         .addNode("apiCodegen", async (state) => apiCodegenNode(state, deps.artifactStore))
         .addNode("serviceTestCodegen", async (state) => serviceTestCodegenNode(state, deps.artifactStore))
+        .addNode("serviceTestLlmEnrich", async (state) => serviceTestLlmEnrichNode(state, deps.artifactStore))
         .addNode("planJourney", async (state) => planJourneyNode(state, deps.artifactStore))
         .addNode("compileAssertions", async (state) => compileAssertionsNode(state, deps.artifactStore))
         .addNode("journeyCodegen", async (state) => journeyCodegenNode(state, deps.artifactStore))
@@ -81,6 +92,7 @@ export function createRunGraph(deps) {
         .addNode("playwrightProject", async (state) => playwrightProjectNode(state, deps.artifactStore))
         .addNode("reviewRun", async (state) => reviewRunNode(state, deps.artifactStore))
         .addNode("traceability", async (state) => traceabilityNode(state, deps.artifactStore))
+        .addNode("llmSummary", async (state) => llmSummaryNode(state, deps.artifactStore))
         .addNode("approvalManifest", async (state) => approvalManifestNode(state, deps.artifactStore))
         .addNode("markCompleted", async () => ({
         status: "completed"
@@ -124,17 +136,47 @@ export function createRunGraph(deps) {
         map: "mapRules"
     })
         .addEdge("rulesLlmGaps", "mapRules")
-        .addConditionalEdges("mapRules", (state) => (state.errors.length > 0 ? "failed" : "continue"), {
+        .addConditionalEdges("mapRules", (state) => {
+        if (state.errors.length > 0) {
+            return "failed";
+        }
+        const mode = automationCodegenMode(state);
+        if (includeJourneyLayer(mode) && !includeApiLayer(mode)) {
+            return "journey";
+        }
+        return "api";
+    }, {
         failed: "markFailed",
-        continue: "apiCodegen"
+        journey: "planJourney",
+        api: "apiCodegen"
     })
         .addConditionalEdges("apiCodegen", (state) => (state.errors.length > 0 ? "failed" : "continue"), {
         failed: "markFailed",
         continue: "serviceTestCodegen"
     })
-        .addConditionalEdges("serviceTestCodegen", (state) => (state.errors.length > 0 ? "failed" : "continue"), {
+        .addConditionalEdges("serviceTestCodegen", (state) => {
+        if (state.errors.length > 0) {
+            return "failed";
+        }
+        if (shouldEnrichServiceTests(state)) {
+            return "enrich";
+        }
+        return includeJourneyLayer(automationCodegenMode(state)) ? "journey" : "playwright";
+    }, {
         failed: "markFailed",
-        continue: "planJourney"
+        enrich: "serviceTestLlmEnrich",
+        journey: "planJourney",
+        playwright: "playwrightProject"
+    })
+        .addConditionalEdges("serviceTestLlmEnrich", (state) => {
+        if (state.errors.length > 0) {
+            return "failed";
+        }
+        return includeJourneyLayer(automationCodegenMode(state)) ? "journey" : "playwright";
+    }, {
+        failed: "markFailed",
+        journey: "planJourney",
+        playwright: "playwrightProject"
     })
         .addEdge("planJourney", "compileAssertions")
         .addConditionalEdges("compileAssertions", (state) => {
@@ -154,7 +196,8 @@ export function createRunGraph(deps) {
     })
         .addEdge("playwrightProject", "validateRun")
         .addEdge("validateRun", "traceability")
-        .addEdge("traceability", "approvalManifest")
+        .addEdge("traceability", "llmSummary")
+        .addEdge("llmSummary", "approvalManifest")
         .addEdge("approvalManifest", "reviewRun")
         .addConditionalEdges("reviewRun", (state) => (state.errors.length > 0 ? "failed" : "completed"), {
         failed: "markFailed",

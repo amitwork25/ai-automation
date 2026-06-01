@@ -7,9 +7,10 @@ export async function ingestApiContractsNode(
   state: RunState,
   artifactStore: IArtifactStore
 ): Promise<Partial<RunState>> {
-  const rawApiInput = state.inputs.apiContracts ?? state.inputs.postmanCollection;
+  const rawApiInput =
+    state.inputs.apiContracts ?? state.inputs.postmanCollection ?? state.inputs.openApiSpec;
   if (!rawApiInput) {
-    throw new Error("apiContracts or postmanCollection is required");
+    throw new Error("apiContracts, postmanCollection, or openApiSpec is required");
   }
 
   const adapted = adaptApiContracts(rawApiInput, state.productId, state.inputs.openApiSpec);
