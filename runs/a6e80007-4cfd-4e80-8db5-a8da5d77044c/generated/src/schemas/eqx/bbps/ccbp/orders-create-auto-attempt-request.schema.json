@@ -1,0 +1,5 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "POST /bbps/v1/billDesk/bbps/v2/orders/create/auto-attempt request body",
+  "type": "object"
+}

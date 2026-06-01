@@ -1,0 +1,421 @@
+{
+  "schemas": {
+    "UpdateCustomerDetailsRequest": {
+      "type": "object",
+      "required": [
+        "device_id",
+        "first_name",
+        "last_name"
+      ],
+      "properties": {
+        "device_id": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "lead_source": {
+          "type": "string"
+        },
+        "pull_type": {
+          "type": "string",
+          "enum": [
+            "short_pull",
+            "long_pull"
+          ]
+        }
+      }
+    },
+    "UpdateCustomerDetailsResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object"
+        }
+      }
+    },
+    "DashboardBlocksRequest": {
+      "type": "object"
+    },
+    "DashboardBlocksResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object"
+        }
+      }
+    },
+    "CcbpBureauDataResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "object"
+        }
+      }
+    },
+    "CcbpHomePageResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "object"
+        }
+      }
+    },
+    "HomepageRemindersResponse": {
+      "type": "object"
+    },
+    "HomepageWidgetsResponse": {
+      "type": "object"
+    },
+    "CcbpCustomerProfileResponse": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        }
+      }
+    },
+    "CcbpProviderItem": {
+      "type": "object",
+      "properties": {
+        "biller_id": {
+          "type": "string"
+        },
+        "provider_name": {
+          "type": "string"
+        }
+      }
+    },
+    "CcbpVariantsResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "object"
+        }
+      }
+    },
+    "CcbpProviderDetailsResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "utility_id": {
+              "type": "number"
+            },
+            "biller_id": {
+              "type": "string"
+            },
+            "provider_name": {
+              "type": "string"
+            },
+            "customer_params": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "CcbpBillFetchRequest": {
+      "type": "object",
+      "required": [
+        "billerId",
+        "authenticators",
+        "billFetchApproval",
+        "foundViaSms"
+      ],
+      "properties": {
+        "billerId": {
+          "type": "string"
+        },
+        "authenticators": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "parameter_name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "billFetchApproval": {
+          "type": "number"
+        },
+        "foundViaSms": {
+          "type": "boolean"
+        },
+        "isNewFlow": {
+          "type": "boolean"
+        }
+      }
+    },
+    "CcbpBillFetchResponse": {
+      "type": "object",
+      "properties": {
+        "customer_id": {
+          "type": "number"
+        },
+        "validation_id": {
+          "type": "string"
+        },
+        "biller_id": {
+          "type": "string"
+        },
+        "utility_id": {
+          "type": "number"
+        },
+        "bill_amount": {
+          "type": "number"
+        },
+        "bill_status": {
+          "type": "string"
+        },
+        "account_no": {
+          "type": "string"
+        },
+        "display_account_no": {
+          "type": "string"
+        },
+        "bill_number": {
+          "type": "string"
+        },
+        "provider_name": {
+          "type": "string"
+        }
+      }
+    },
+    "CcbpBillFetchConsentRequest": {
+      "type": "object"
+    },
+    "CcbpBillFetchConsentResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "body": {
+          "type": "object"
+        }
+      }
+    },
+    "CcbpBillDeskUtilitiesBillsResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CcbpBillDeskUtilityBillRow"
+      }
+    },
+    "CcbpBillDeskUtilityBillRow": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "bill_id": {
+          "type": "string"
+        },
+        "biller_id": {
+          "type": "string"
+        },
+        "utility_id": {
+          "type": "number"
+        },
+        "account_no": {
+          "type": "string"
+        },
+        "bill_state": {
+          "type": "string"
+        }
+      }
+    },
+    "CcbpOrdersCreateRequest": {
+      "type": "object",
+      "required": [
+        "billerId",
+        "account_no",
+        "amount",
+        "category",
+        "offerId",
+        "validationId",
+        "customer_params",
+        "isNewFlow"
+      ],
+      "properties": {
+        "billerId": {
+          "type": "string"
+        },
+        "account_no": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "offerId": {
+          "type": "number"
+        },
+        "validationId": {
+          "type": "string"
+        },
+        "customer_params": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "isNewFlow": {
+          "type": "boolean"
+        }
+      }
+    },
+    "CcbpOrdersCreateResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "status_code": {
+          "type": "number"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "checkout_token": {
+              "type": "string"
+            },
+            "options_url": {
+              "type": "string"
+            },
+            "attempts_url": {
+              "type": "string"
+            },
+            "redirect_url": {
+              "type": "string"
+            },
+            "status_page_url": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "CcbpOrdersCreateAutoAttemptRequest": {
+      "type": "object"
+    },
+    "CcbpOrdersCreateAutoAttemptResponse": {
+      "type": "object"
+    },
+    "CcbpCheckoutOptionsRequest": {
+      "type": "object"
+    },
+    "CcbpCheckoutOptionsResponse": {
+      "type": "object"
+    },
+    "CcbpCheckoutAttemptRequest": {
+      "type": "object"
+    },
+    "CcbpCheckoutAttemptResponse": {
+      "type": "object"
+    },
+    "CcbpPaymentsCallbackRequest": {
+      "type": "object"
+    },
+    "CcbpBilldeskWebhookRequest": {
+      "type": "object",
+      "required": [
+        "order_id",
+        "status",
+        "client_id",
+        "payment_method"
+      ],
+      "properties": {
+        "order_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "client_id": {
+          "type": "string"
+        },
+        "payment_method": {
+          "type": "object"
+        }
+      }
+    },
+    "CcbpComplaintsRequest": {
+      "type": "object"
+    },
+    "CcbpComplaintsResponse": {
+      "type": "object"
+    },
+    "ClaimGoldRewardBody": {
+      "type": "object",
+      "required": [
+        "order_id",
+        "amount"
+      ],
+      "properties": {
+        "order_id": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "pincode": {
+          "type": "number"
+        }
+      }
+    },
+    "ClaimGoldRewardResponse": {
+      "type": "object",
+      "properties": {
+        "greeting": {
+          "type": "string"
+        },
+        "heading": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "unresolvedRefs": []
+}

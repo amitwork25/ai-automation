@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "assertion-catalog-v1",
+  "templates": [
+    {
+      "templateId": "expect.equals",
+      "match": { "op": "equals" },
+      "emit": "expect({{contextPath}}, {{label}}).toBe({{expected}})"
+    },
+    {
+      "templateId": "expect.length.zero",
+      "match": { "op": "length", "value": 0 },
+      "emit": "expect({{contextPath}}, {{label}}).length.toBe(0)"
+    },
+    {
+      "templateId": "expect.length.gt",
+      "match": { "op": "length_gt" },
+      "emit": "expect({{contextPath}}, {{label}}).length.toBeGreaterThan({{expected}})"
+    },
+    {
+      "templateId": "expect.length.gte",
+      "match": { "op": "length_gte" },
+      "emit": "expect({{contextPath}}, {{label}}).length.toBeGreaterThanOrEqual({{expected}})"
+    },
+    {
+      "templateId": "expect.present",
+      "match": { "op": "present" },
+      "emit": "expect({{contextPath}}, {{label}}).toBeTruthy()"
+    },
+    {
+      "templateId": "expect.gt",
+      "match": { "op": "gt" },
+      "emit": "expect({{contextPath}}, {{label}}).toBeGreaterThan({{expected}})"
+    },
+    {
+      "templateId": "expect.networks.contains",
+      "match": { "op": "contains_all", "path": "variants.data.networks" },
+      "emit": "expect(networkNames, {{label}}).toContain(\"Visa\"); expect(networkNames, {{label}}).toContain(\"Mastercard\")"
+    },
+    {
+      "templateId": "assert.updateCustomerDetailsAccepted",
+      "match": { "assertFn": "assertUpdateCustomerDetailsAccepted" },
+      "emit": "assertUpdateCustomerDetailsAccepted(response)"
+    },
+    {
+      "templateId": "assert.ccbpNewUserJourneyContracts",
+      "match": { "assertFn": "assertCcbpNewUserJourneyContracts" },
+      "emit": "assertCcbpNewUserJourneyContracts(ctx)"
+    }
+  ]
+}

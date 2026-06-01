@@ -1,0 +1,5 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "POST /bbps/v1/billDesk/bbps/payments/callback request body",
+  "type": "object"
+}

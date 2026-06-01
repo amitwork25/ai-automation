@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "04-journey-spec-v1",
+  "productId": "bbps/ccbp",
+  "manualTcHash": "sha256:08fc6d1352eedeb2964c402ada3b22aefb0b1476bca93994645410b31b357a8f",
+  "mappingMeta": {
+    "totalSteps": 4,
+    "mappedSteps": 4,
+    "mappingRate": 1,
+    "targetMet": true
+  },
+  "journeys": [
+    {
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "persona": "new_user",
+      "sourceCaseIds": [
+        "TC-39"
+      ],
+      "apiSequence": [
+        "ccbp.customer_profile",
+        "ccbp.bureau_data",
+        "ccbp.home_page",
+        "ccbp.providers_list",
+        "ccbp.variants",
+        "ccbp.provider_details",
+        "ccbp.bill_fetch",
+        "ccbp.utilities_bills_v3"
+      ],
+      "stepMappings": [
+        {
+          "caseId": "TC-39",
+          "manualStepIndex": 4,
+          "manualText": "Open BBPS from the dashboard / entry you use for bill pay.",
+          "apiIds": [
+            "ccbp.customer_profile",
+            "ccbp.utilities_bills_v3",
+            "ccbp.home_page",
+            "ccbp.bureau_data"
+          ],
+          "confidence": 1,
+          "matchMethod": "apiRef:method+path"
+        },
+        {
+          "caseId": "TC-39",
+          "manualStepIndex": 8,
+          "manualText": "Browse supported banks / billers for Credit Card BBPS.",
+          "apiIds": [
+            "ccbp.home_page",
+            "ccbp.providers_list"
+          ],
+          "confidence": 1,
+          "matchMethod": "apiRef:method+path"
+        },
+        {
+          "caseId": "TC-39",
+          "manualStepIndex": 9,
+          "manualText": "Pick card type / network (Visa, Mastercard, etc.).",
+          "apiIds": [
+            "ccbp.variants",
+            "ccbp.provider_details"
+          ],
+          "confidence": 1,
+          "matchMethod": "apiRef:method+path"
+        },
+        {
+          "caseId": "TC-39",
+          "manualStepIndex": 11,
+          "manualText": "Enter card last 4 and registered mobile (and any other asked fields) and fetch bill.",
+          "apiIds": [
+            "ccbp.provider_details",
+            "ccbp.bill_fetch"
+          ],
+          "confidence": 0.8,
+          "matchMethod": "llm:fallback"
+        }
+      ],
+      "checkpoints": [
+        {
+          "afterApiId": "ccbp.utilities_bills_v3",
+          "caseId": "TC-39"
+        }
+      ]
+    }
+  ],
+  "unmapped": []
+}

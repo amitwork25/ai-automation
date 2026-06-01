@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "10b-service-test-llm-report-v1",
+  "productId": "bbps/ccbp",
+  "provider": "gemini",
+  "inputCount": 8,
+  "enrichedCount": 5,
+  "additionalTestCount": 5,
+  "enrichments": [
+    {
+      "apiId": "ccbp.home_page",
+      "files": [
+        "tests/service/bbps/ccbp/home-page/home-page.service.spec.ts"
+      ],
+      "additionalTestCount": 1
+    },
+    {
+      "apiId": "ccbp.providers_list",
+      "files": [
+        "tests/service/bbps/ccbp/providers-list/providers-list.service.spec.ts"
+      ],
+      "additionalTestCount": 1
+    },
+    {
+      "apiId": "ccbp.variants",
+      "files": [
+        "tests/service/bbps/ccbp/variants/variants.service.spec.ts"
+      ],
+      "additionalTestCount": 1
+    },
+    {
+      "apiId": "ccbp.provider_details",
+      "files": [
+        "tests/service/bbps/ccbp/provider-details/provider-details.service.spec.ts"
+      ],
+      "additionalTestCount": 1
+    },
+    {
+      "apiId": "ccbp.bill_fetch",
+      "files": [
+        "tests/service/bbps/ccbp/bill-fetch/bill-fetch.service.spec.ts"
+      ],
+      "additionalTestCount": 1
+    }
+  ],
+  "errors": []
+}

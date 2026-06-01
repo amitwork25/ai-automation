@@ -1,0 +1,55 @@
+{
+  "productId": "bbps/ccbp",
+  "aliases": [
+    {
+      "phrases": ["log in with mobile", "complete otp", "login with mobile"],
+      "composite": "auth.login_flow",
+      "apiIds": ["eqx.update_customer_details"]
+    },
+    {
+      "phrases": ["login succeeds", "session is established"],
+      "apiId": "eqx.update_customer_details"
+    },
+    {
+      "phrases": ["complete profile", "update customer", "name email"],
+      "apiId": "eqx.update_customer_details"
+    },
+    {
+      "phrases": ["open bbps", "dashboard", "bill pay entry"],
+      "apiId": "ccbp.dashboard_blocks"
+    },
+    {
+      "phrases": ["credit card home", "view credit card home", "empty list", "total due"],
+      "apiId": "ccbp.home_page"
+    },
+    {
+      "phrases": ["bureau", "suggested cards"],
+      "apiId": "ccbp.bureau_data"
+    },
+    {
+      "phrases": ["customer profile", "bbps profile"],
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "phrases": ["supported banks", "billers", "providers list"],
+      "apiId": "ccbp.providers_list"
+    },
+    {
+      "phrases": ["card type", "network", "visa", "mastercard", "variants"],
+      "apiId": "ccbp.variants"
+    },
+    {
+      "phrases": ["biller details", "provider details", "chosen bank"],
+      "apiId": "ccbp.provider_details"
+    },
+    {
+      "phrases": ["fetch bill", "bill fetch", "last 4", "registered mobile"],
+      "composite": "ccbp.bill_fetch_flow",
+      "apiIds": ["ccbp.bill_fetch", "ccbp.utilities_bills_v3"]
+    },
+    {
+      "phrases": ["my bills", "utilities list"],
+      "apiId": "ccbp.utilities_bills_v3"
+    }
+  ]
+}

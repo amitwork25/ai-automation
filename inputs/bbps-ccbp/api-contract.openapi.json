@@ -1,0 +1,801 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "BBPS / CCBP API Contract",
+    "description": "External source-of-truth contract for automation-agent ingest. Not tied to pw-api-framework file layout.",
+    "version": "1.0.0"
+  },
+  "x-productId": "bbps/ccbp",
+  "x-dependencyGraph": [
+    { "from": "eqx.update_customer_details", "to": "ccbp.dashboard_blocks", "via": "session" },
+    { "from": "ccbp.dashboard_blocks", "to": "ccbp.bureau_data", "via": "navigation" },
+    { "from": "ccbp.bureau_data", "to": "ccbp.home_page", "via": "navigation" },
+    { "from": "ccbp.home_page", "to": "ccbp.providers_list", "via": "utilityId" },
+    { "from": "ccbp.providers_list", "to": "ccbp.variants", "via": "billerId" },
+    { "from": "ccbp.variants", "to": "ccbp.provider_details", "via": "billerId" },
+    { "from": "ccbp.provider_details", "to": "ccbp.bill_fetch", "via": "authenticators" },
+    { "from": "ccbp.bill_fetch", "to": "ccbp.utilities_bills_v3", "via": "customer_id" },
+    { "from": "ccbp.utilities_bills_v3", "to": "ccbp.orders_create", "via": "validation_id" },
+    { "from": "ccbp.orders_create", "to": "ccbp.checkout_options", "via": "checkout_token" },
+    { "from": "ccbp.checkout_options", "to": "ccbp.checkout_attempt", "via": "checkout_token" },
+    { "from": "ccbp.checkout_attempt", "to": "ccbp.billdesk_webhook", "via": "order_id" },
+    { "from": "ccbp.billdesk_webhook", "to": "ccbp.payments_callback", "via": "order_id" }
+  ],
+  "paths": {
+    "/update-customer-details": {
+      "put": {
+        "operationId": "eqx.update_customer_details",
+        "x-apiId": "eqx.update_customer_details",
+        "summary": "Update customer profile after OTP",
+        "x-auth": "bearer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateCustomerDetailsRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/UpdateCustomerDetailsResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/blocks": {
+      "post": {
+        "operationId": "ccbp.dashboard_blocks",
+        "x-apiId": "ccbp.dashboard_blocks",
+        "summary": "Dashboard blocks for BBPS entry",
+        "x-auth": "bearer",
+        "x-dependsOn": [{ "from": "eqx.update_customer_details", "to": "ccbp.dashboard_blocks", "via": "session" }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/DashboardBlocksRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DashboardBlocksResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/homepage/bureauData": {
+      "get": {
+        "operationId": "ccbp.bureau_data",
+        "x-apiId": "ccbp.bureau_data",
+        "summary": "Bureau / suggested cards for new user",
+        "x-auth": "bearer",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CcbpBureauDataResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/bbps/home-page": {
+      "get": {
+        "operationId": "ccbp.home_page",
+        "x-apiId": "ccbp.home_page",
+        "summary": "Credit Card BBPS home page",
+        "x-auth": "bearer",
+        "parameters": [
+          { "name": "utilityId", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CcbpHomePageResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/homepage/reminders": {
+      "get": {
+        "operationId": "ccbp.homepage_reminders",
+        "x-apiId": "ccbp.homepage_reminders",
+        "summary": "Homepage reminders",
+        "x-auth": "bearer",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HomepageRemindersResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/homepage/widgets": {
+      "get": {
+        "operationId": "ccbp.homepage_widgets",
+        "x-apiId": "ccbp.homepage_widgets",
+        "summary": "Homepage widgets",
+        "x-auth": "bearer",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/HomepageWidgetsResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/customer-profile": {
+      "get": {
+        "operationId": "ccbp.customer_profile",
+        "x-apiId": "ccbp.customer_profile",
+        "summary": "Customer / BBPS profile",
+        "x-auth": "bearer",
+        "x-envelope": "flat",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CcbpCustomerProfileResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/utilities/{utilityId}/providers": {
+      "get": {
+        "operationId": "ccbp.providers_list",
+        "x-apiId": "ccbp.providers_list",
+        "summary": "Supported banks / billers list",
+        "x-auth": "bearer",
+        "x-envelope": "array",
+        "parameters": [
+          { "name": "utilityId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/CcbpProviderItem" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/bbps/variants": {
+      "get": {
+        "operationId": "ccbp.variants",
+        "x-apiId": "ccbp.variants",
+        "summary": "Card type / network variants",
+        "x-auth": "bearer",
+        "parameters": [
+          { "name": "billerId", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CcbpVariantsResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/provider/{billerId}": {
+      "get": {
+        "operationId": "ccbp.provider_details",
+        "x-apiId": "ccbp.provider_details",
+        "summary": "Biller details and customer_params for bill-fetch",
+        "x-auth": "bearer",
+        "parameters": [
+          { "name": "billerId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CcbpProviderDetailsResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/bbps/bill-fetch": {
+      "post": {
+        "operationId": "ccbp.bill_fetch",
+        "x-apiId": "ccbp.bill_fetch",
+        "summary": "Fetch bill for biller using authenticators",
+        "x-auth": "bearer",
+        "x-envelope": "flat",
+        "x-dependsOn": [{ "from": "ccbp.provider_details", "to": "ccbp.bill_fetch", "via": "authenticators" }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CcbpBillFetchRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CcbpBillFetchResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/bbps/bill-fetch/consent": {
+      "post": {
+        "operationId": "ccbp.bill_fetch_consent",
+        "x-apiId": "ccbp.bill_fetch_consent",
+        "summary": "Bill fetch consent",
+        "x-auth": "bearer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": { "$ref": "#/components/schemas/CcbpBillFetchConsentRequest" }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CcbpBillFetchConsentResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v3/billDesk/utilities/null/bills": {
+      "get": {
+        "operationId": "ccbp.utilities_bills_v3_null",
+        "x-apiId": "ccbp.utilities_bills_v3_null",
+        "summary": "Utilities bills (null customer placeholder)",
+        "x-auth": "bearer",
+        "x-envelope": "array",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CcbpBillDeskUtilitiesBillsResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v3/billDesk/utilities/{customerId}/bills": {
+      "get": {
+        "operationId": "ccbp.utilities_bills_v3",
+        "x-apiId": "ccbp.utilities_bills_v3",
+        "summary": "My bills list after bill-fetch",
+        "x-auth": "bearer",
+        "x-envelope": "array",
+        "x-dependsOn": [{ "from": "ccbp.bill_fetch", "to": "ccbp.utilities_bills_v3", "via": "customer_id" }],
+        "parameters": [
+          { "name": "customerId", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "endPoint", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CcbpBillDeskUtilitiesBillsResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/utilities/{customerId}/bills": {
+      "get": {
+        "operationId": "ccbp.utilities_bills_v1",
+        "x-apiId": "ccbp.utilities_bills_v1",
+        "summary": "Utilities bills v1",
+        "x-auth": "bearer",
+        "x-envelope": "array",
+        "parameters": [
+          { "name": "customerId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "type": "array", "items": { "type": "object" } }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/transactions/{customerId}": {
+      "get": {
+        "operationId": "ccbp.transactions",
+        "x-apiId": "ccbp.transactions",
+        "summary": "Transaction history",
+        "x-auth": "bearer",
+        "x-envelope": "array",
+        "parameters": [
+          { "name": "customerId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "type": "array", "items": { "type": "object" } }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/bbps/v2/orders/create": {
+      "post": {
+        "operationId": "ccbp.orders_create",
+        "x-apiId": "ccbp.orders_create",
+        "summary": "Create payment order",
+        "x-auth": "bearer",
+        "x-dependsOn": [{ "from": "ccbp.bill_fetch", "to": "ccbp.orders_create", "via": "validation_id" }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CcbpOrdersCreateRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CcbpOrdersCreateResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/bbps/v2/orders/create/auto-attempt": {
+      "post": {
+        "operationId": "ccbp.orders_create_auto_attempt",
+        "x-apiId": "ccbp.orders_create_auto_attempt",
+        "summary": "Create order with auto payment attempt",
+        "x-auth": "bearer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CcbpOrdersCreateAutoAttemptRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CcbpOrdersCreateAutoAttemptResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stashpayments/v2/checkout/options": {
+      "post": {
+        "operationId": "ccbp.checkout_options",
+        "x-apiId": "ccbp.checkout_options",
+        "summary": "Checkout payment options",
+        "x-auth": "bearer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CcbpCheckoutOptionsRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CcbpCheckoutOptionsResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stashpayments/v2/attempts": {
+      "post": {
+        "operationId": "ccbp.checkout_attempt",
+        "x-apiId": "ccbp.checkout_attempt",
+        "summary": "Checkout payment attempt",
+        "x-auth": "bearer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CcbpCheckoutAttemptRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CcbpCheckoutAttemptResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/bbps/payments/callback": {
+      "post": {
+        "operationId": "ccbp.payments_callback",
+        "x-apiId": "ccbp.payments_callback",
+        "summary": "Payments callback after checkout",
+        "x-auth": "bearer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CcbpPaymentsCallbackRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Success or redirect" }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/bbps/billdesk/webhook": {
+      "post": {
+        "operationId": "ccbp.billdesk_webhook",
+        "x-apiId": "ccbp.billdesk_webhook",
+        "summary": "BillDesk payment webhook",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CcbpBilldeskWebhookRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Webhook accepted" }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/bbps/complaints": {
+      "post": {
+        "operationId": "ccbp.complaints",
+        "x-apiId": "ccbp.complaints",
+        "summary": "Raise BBPS complaint",
+        "x-auth": "bearer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CcbpComplaintsRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CcbpComplaintsResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/claim-reward/gold": {
+      "post": {
+        "operationId": "ccbp.claim_gold_reward",
+        "x-apiId": "ccbp.claim_gold_reward",
+        "summary": "Claim gold reward",
+        "x-auth": "bearer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ClaimGoldRewardBody" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ClaimGoldRewardResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/validateGoldReward": {
+      "get": {
+        "operationId": "ccbp.validate_gold_reward",
+        "x-apiId": "ccbp.validate_gold_reward",
+        "summary": "Validate gold reward eligibility",
+        "x-auth": "bearer",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": { "success": { "type": "boolean" } }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/billDesk/bill/status": {
+      "get": {
+        "operationId": "ccbp.bill_status_get",
+        "x-apiId": "ccbp.bill_status_get",
+        "summary": "Get bill status",
+        "x-auth": "bearer",
+        "responses": {
+          "200": { "description": "Bill status" }
+        }
+      },
+      "patch": {
+        "operationId": "ccbp.bill_status_patch",
+        "x-apiId": "ccbp.bill_status_patch",
+        "summary": "Update bill status",
+        "x-auth": "bearer",
+        "responses": {
+          "200": { "description": "Bill status updated" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "UpdateCustomerDetailsRequest": {
+        "type": "object",
+        "required": ["device_id", "first_name", "last_name"],
+        "properties": {
+          "device_id": { "type": "string" },
+          "first_name": { "type": "string" },
+          "last_name": { "type": "string" },
+          "lead_source": { "type": "string" },
+          "pull_type": { "type": "string", "enum": ["short_pull", "long_pull"] }
+        }
+      },
+      "UpdateCustomerDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "string" },
+          "message": { "type": "string" },
+          "data": { "type": "object" }
+        }
+      },
+      "DashboardBlocksRequest": { "type": "object" },
+      "DashboardBlocksResponse": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "string" },
+          "data": { "type": "object" }
+        }
+      },
+      "CcbpBureauDataResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "data": { "type": "object" }
+        }
+      },
+      "CcbpHomePageResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "data": { "type": "object" }
+        }
+      },
+      "HomepageRemindersResponse": { "type": "object" },
+      "HomepageWidgetsResponse": { "type": "object" },
+      "CcbpCustomerProfileResponse": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "email": { "type": "string" },
+          "mobile": { "type": "string" }
+        }
+      },
+      "CcbpProviderItem": {
+        "type": "object",
+        "properties": {
+          "biller_id": { "type": "string" },
+          "provider_name": { "type": "string" }
+        }
+      },
+      "CcbpVariantsResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "data": { "type": "object" }
+        }
+      },
+      "CcbpProviderDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "string" },
+          "data": {
+            "type": "object",
+            "properties": {
+              "utility_id": { "type": "number" },
+              "biller_id": { "type": "string" },
+              "provider_name": { "type": "string" },
+              "customer_params": { "type": "array", "items": { "type": "object" } }
+            }
+          }
+        }
+      },
+      "CcbpBillFetchRequest": {
+        "type": "object",
+        "required": ["billerId", "authenticators", "billFetchApproval", "foundViaSms"],
+        "properties": {
+          "billerId": { "type": "string" },
+          "authenticators": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "parameter_name": { "type": "string" },
+                "value": { "type": "string" }
+              }
+            }
+          },
+          "billFetchApproval": { "type": "number" },
+          "foundViaSms": { "type": "boolean" },
+          "isNewFlow": { "type": "boolean" }
+        }
+      },
+      "CcbpBillFetchResponse": {
+        "type": "object",
+        "properties": {
+          "customer_id": { "type": "number" },
+          "validation_id": { "type": "string" },
+          "biller_id": { "type": "string" },
+          "utility_id": { "type": "number" },
+          "bill_amount": { "type": "number" },
+          "bill_status": { "type": "string" },
+          "account_no": { "type": "string" },
+          "display_account_no": { "type": "string" },
+          "bill_number": { "type": "string" },
+          "provider_name": { "type": "string" }
+        }
+      },
+      "CcbpBillFetchConsentRequest": { "type": "object" },
+      "CcbpBillFetchConsentResponse": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "string" },
+          "body": { "type": "object" }
+        }
+      },
+      "CcbpBillDeskUtilitiesBillsResponse": {
+        "type": "array",
+        "items": { "$ref": "#/components/schemas/CcbpBillDeskUtilityBillRow" }
+      },
+      "CcbpBillDeskUtilityBillRow": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "number" },
+          "bill_id": { "type": "string" },
+          "biller_id": { "type": "string" },
+          "utility_id": { "type": "number" },
+          "account_no": { "type": "string" },
+          "bill_state": { "type": "string" }
+        }
+      },
+      "CcbpOrdersCreateRequest": {
+        "type": "object",
+        "required": [
+          "billerId",
+          "account_no",
+          "amount",
+          "category",
+          "offerId",
+          "validationId",
+          "customer_params",
+          "isNewFlow"
+        ],
+        "properties": {
+          "billerId": { "type": "string" },
+          "account_no": { "type": "string" },
+          "amount": { "type": "string" },
+          "category": { "type": "string" },
+          "offerId": { "type": "number" },
+          "validationId": { "type": "string" },
+          "customer_params": { "type": "array", "items": { "type": "object" } },
+          "isNewFlow": { "type": "boolean" }
+        }
+      },
+      "CcbpOrdersCreateResponse": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "string" },
+          "status_code": { "type": "number" },
+          "data": {
+            "type": "object",
+            "properties": {
+              "checkout_token": { "type": "string" },
+              "options_url": { "type": "string" },
+              "attempts_url": { "type": "string" },
+              "redirect_url": { "type": "string" },
+              "status_page_url": { "type": "string" }
+            }
+          }
+        }
+      },
+      "CcbpOrdersCreateAutoAttemptRequest": { "type": "object" },
+      "CcbpOrdersCreateAutoAttemptResponse": { "type": "object" },
+      "CcbpCheckoutOptionsRequest": { "type": "object" },
+      "CcbpCheckoutOptionsResponse": { "type": "object" },
+      "CcbpCheckoutAttemptRequest": { "type": "object" },
+      "CcbpCheckoutAttemptResponse": { "type": "object" },
+      "CcbpPaymentsCallbackRequest": { "type": "object" },
+      "CcbpBilldeskWebhookRequest": {
+        "type": "object",
+        "required": ["order_id", "status", "client_id", "payment_method"],
+        "properties": {
+          "order_id": { "type": "string" },
+          "status": { "type": "string" },
+          "client_id": { "type": "string" },
+          "payment_method": { "type": "object" }
+        }
+      },
+      "CcbpComplaintsRequest": { "type": "object" },
+      "CcbpComplaintsResponse": { "type": "object" },
+      "ClaimGoldRewardBody": {
+        "type": "object",
+        "required": ["order_id", "amount"],
+        "properties": {
+          "order_id": { "type": "string" },
+          "amount": { "type": "number" },
+          "pincode": { "type": "number" }
+        }
+      },
+      "ClaimGoldRewardResponse": {
+        "type": "object",
+        "properties": {
+          "greeting": { "type": "string" },
+          "heading": { "type": "string" }
+        }
+      }
+    }
+  }
+}

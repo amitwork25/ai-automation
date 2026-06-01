@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "caseId": "MTC-1042",
+      "title": "New user bill discovery",
+      "persona": "new_user",
+      "journeyTags": ["bill_discovery"],
+      "steps": [
+        {
+          "action": "Login with new mobile",
+          "stepType": "api",
+          "apiRefs": [
+            { "apiId": "auth.send_otp", "method": "POST" },
+            { "apiId": "auth.verify_otp", "method": "POST" }
+          ]
+        },
+        {
+          "action": "Fetch bill for selected provider",
+          "stepType": "api",
+          "apiRef": {
+            "apiId": "ccbp.bill_fetch",
+            "method": "POST",
+            "pathHint": "/bbps/v1/ccbp/bill-fetch"
+          }
+        },
+        {
+          "action": "Get all available bills",
+          "stepType": "api",
+          "apiRef": {
+            "apiId": "ccbp.bills",
+            "method": "GET",
+            "pathHint": "/bbps/v1/ccbp/bills"
+          }
+        }
+      ],
+      "expectedResults": ["status=200", "bill_amount > 0", "validation_id present"]
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "schemaVersion": "06-business-rules-mapped-v1",
+  "productId": "bbps/ccbp",
+  "mappings": [
+    {
+      "ruleId": "TC-39_1_user_can_start_the_journey_without_already_havin_na",
+      "status": "non_automatable",
+      "reason": "UI-only or manual verification"
+    },
+    {
+      "ruleId": "TC-39_2_login_succeeds_session_is_established_1",
+      "status": "template",
+      "templateId": "expect.equals",
+      "contextPath": "verify.status",
+      "expected": 200,
+      "reason": "Catalog match: expect.equals"
+    },
+    {
+      "ruleId": "TC-39_3_update_is_accepted_user_can_proceed_no_blocking__2",
+      "status": "template",
+      "templateId": "assert.updateCustomerDetailsAccepted",
+      "assertFn": "assertUpdateCustomerDetailsAccepted",
+      "reason": "Catalog match: assert.updateCustomerDetailsAccepted"
+    },
+    {
+      "ruleId": "TC-39_4_bbps_credit_card_entry_is_available_user_lands_o_na",
+      "status": "non_automatable",
+      "reason": "UI-only or manual verification"
+    },
+    {
+      "ruleId": "TC-39_5_no_saved_cards_yet_empty_list_0_total_due_stashg_4",
+      "status": "template",
+      "templateId": "expect.length.zero",
+      "contextPath": "homepage.data.bills",
+      "expected": 0,
+      "reason": "Catalog match: expect.length.zero"
+    },
+    {
+      "ruleId": "TC-39_5_no_saved_cards_yet_empty_list_0_total_due_stashg_5",
+      "status": "template",
+      "templateId": "expect.equals",
+      "contextPath": "homepage.data.totalDueAmount",
+      "expected": 0,
+      "reason": "Catalog match: expect.equals"
+    },
+    {
+      "ruleId": "TC-39_5_no_saved_cards_yet_empty_list_0_total_due_stashg_6",
+      "status": "template",
+      "templateId": "expect.equals",
+      "contextPath": "homepage.data.isStashGaurdEnabled",
+      "expected": false,
+      "reason": "Catalog match: expect.equals"
+    },
+    {
+      "ruleId": "TC-39_5_no_saved_cards_yet_empty_list_0_total_due_stashg_7",
+      "status": "template",
+      "templateId": "expect.equals",
+      "contextPath": "homepage.data.hasUserClaimedGoldReward",
+      "expected": false,
+      "reason": "Catalog match: expect.equals"
+    },
+    {
+      "ruleId": "TC-39_6_screen_loads_successfully_but_no_bureau_sourced__8",
+      "status": "template",
+      "templateId": "expect.length.zero",
+      "contextPath": "bureau.data.bureauBills",
+      "expected": 0,
+      "reason": "Catalog match: expect.length.zero"
+    },
+    {
+      "ruleId": "TC-39_7_profile_shows_a_real_user_name_email_mobile_new__9",
+      "status": "template",
+      "templateId": "expect.gt",
+      "contextPath": "customerProfile.customer_id",
+      "expected": 0,
+      "reason": "Catalog match: expect.gt"
+    },
+    {
+      "ruleId": "TC-39_7_profile_shows_a_real_user_name_email_mobile_new__10",
+      "status": "template",
+      "templateId": "expect.present",
+      "contextPath": "customerProfile.customer_name",
+      "expected": true,
+      "reason": "Catalog match: expect.present"
+    },
+    {
+      "ruleId": "TC-39_7_profile_shows_a_real_user_name_email_mobile_new__11",
+      "status": "template",
+      "templateId": "expect.present",
+      "contextPath": "customerProfile.email",
+      "expected": true,
+      "reason": "Catalog match: expect.present"
+    },
+    {
+      "ruleId": "TC-39_7_profile_shows_a_real_user_name_email_mobile_new__12",
+      "status": "template",
+      "templateId": "expect.equals",
+      "contextPath": "customerProfile.is_new_ccbp_flow",
+      "expected": true,
+      "reason": "Catalog match: expect.equals"
+    },
+    {
+      "ruleId": "TC-39_8_list_of_providers_is_not_empty_user_can_pick_a_b_13",
+      "status": "template",
+      "templateId": "expect.length.gt",
+      "contextPath": "providers",
+      "expected": 0,
+      "reason": "Catalog match: expect.length.gt"
+    },
+    {
+      "ruleId": "TC-39_9_variants_screen_shows_popular_and_other_options__14",
+      "status": "template",
+      "templateId": "expect.length.gt",
+      "contextPath": "variants.data.variants.popularVariants",
+      "expected": 0,
+      "reason": "Catalog match: expect.length.gt"
+    },
+    {
+      "ruleId": "TC-39_9_variants_screen_shows_popular_and_other_options__15",
+      "status": "template",
+      "templateId": "expect.networks.contains",
+      "contextPath": "variants.data.networks",
+      "expected": [
+        "Visa",
+        "Mastercard"
+      ],
+      "reason": "Catalog match: expect.networks.contains"
+    },
+    {
+      "ruleId": "TC-39_10_details_match_the_chosen_biller_fields_required__16",
+      "status": "template",
+      "templateId": "expect.present",
+      "contextPath": "providerDetails.data.biller_id",
+      "expected": true,
+      "reason": "Catalog match: expect.present"
+    },
+    {
+      "ruleId": "TC-39_11_bill_is_found_due_amount_and_status_look_valid_u_17",
+      "status": "template",
+      "templateId": "assert.ccbpNewUserJourneyContracts",
+      "assertFn": "assertCcbpNewUserJourneyContracts",
+      "reason": "Catalog match: assert.ccbpNewUserJourneyContracts"
+    },
+    {
+      "ruleId": "TC-39_12_at_least_one_credit_card_bill_appears_for_this_u_18",
+      "status": "template",
+      "templateId": "expect.length.gte",
+      "contextPath": "utilitiesBills",
+      "expected": 1,
+      "reason": "Catalog match: expect.length.gte"
+    }
+  ],
+  "pendingCustom": [],
+  "mappingMeta": {
+    "totalRules": 19,
+    "templateCount": 17,
+    "customCount": 0,
+    "nonAutomatableCount": 2,
+    "approvedCount": 0,
+    "mappingRate": 1,
+    "targetMet": true
+  }
+}

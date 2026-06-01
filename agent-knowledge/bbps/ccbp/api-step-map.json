@@ -1,0 +1,79 @@
+{
+  "productId": "bbps/ccbp",
+  "journeyEntrySteps": ["sendOtpStep", "verifyOtpStep"],
+  "apiToStep": {
+    "auth.send_otp": "sendOtpStep",
+    "auth.verify_otp": "verifyOtpStep",
+    "eqx.update_customer_details": "updateCustomerDetailsStep",
+    "ccbp.dashboard_blocks": "dashboardBlocksStep",
+    "ccbp.bureau_data": "bureauDataStep",
+    "ccbp.home_page": "homePageStep",
+    "ccbp.customer_profile": "customerProfileStep",
+    "ccbp.providers_list": "providersListStep",
+    "ccbp.variants": "variantsStep",
+    "ccbp.provider_details": "providerDetailsStep",
+    "ccbp.bill_fetch": "billFetchNewUserStep",
+    "ccbp.utilities_bills_v3": "utilitiesBillsByCustomerIdStep",
+    "ccbp.utilities_bills_v1": "utilitiesBillsByCustomerIdStep"
+  },
+  "stepWrites": {
+    "verifyOtpStep": { "authToken": "verifyRes.data.auth_token" },
+    "dashboardBlocksStep": {
+      "blocksBody": "blocksBody",
+      "utilityId": "utilityIdFromDashboardBlocks(blocksBody)"
+    },
+    "homePageStep": { "homepage": "homepage" },
+    "bureauDataStep": { "bureau": "bureau" },
+    "customerProfileStep": { "customerProfile": "customerProfile" },
+    "providersListStep": { "providers": "providers" },
+    "variantsStep": { "variants": "variants" },
+    "providerDetailsStep": { "providerDetails": "providerDetails" },
+    "billFetchNewUserStep": { "billFetch": "billFetch" },
+    "utilitiesBillsByCustomerIdStep": { "utilitiesBills": "utilitiesBills" }
+  },
+  "stepBodyLines": {
+    "sendOtpStep": ["const sendOtpRes = await sendOtpStep(apiClient, input);"],
+    "verifyOtpStep": [
+      "const verifyRes = await verifyOtpStep(apiClient, input, sendOtpRes.data.token);",
+      "ctx.authToken = verifyRes.data.auth_token;"
+    ],
+    "updateCustomerDetailsStep": ["await updateCustomerDetailsStep(apiClient, ctx.authToken, input);"],
+    "dashboardBlocksStep": [
+      "const blocksBody = await dashboardBlocksStep(apiClient, ctx.authToken);",
+      "ctx.utilityId = utilityIdFromDashboardBlocks(blocksBody);"
+    ],
+    "homePageStep": ["ctx.homepage = await homePageStep(apiClient, ctx.utilityId!, ctx.authToken);"],
+    "bureauDataStep": ["ctx.bureau = await bureauDataStep(apiClient, ctx.authToken);"],
+    "customerProfileStep": ["ctx.customerProfile = await customerProfileStep(apiClient, ctx.authToken);"],
+    "providersListStep": ["ctx.providers = await providersListStep(apiClient, ctx.utilityId!, ctx.authToken);"],
+    "variantsStep": [
+      "const billerId = ctx.providers?.[0]?.billerid ?? \"\";",
+      "ctx.variants = await variantsStep(apiClient, billerId, ctx.authToken);"
+    ],
+    "providerDetailsStep": [
+      "const billerId = ctx.providers?.[0]?.billerid ?? \"\";",
+      "ctx.providerDetails = await providerDetailsStep(apiClient, billerId, ctx.authToken);"
+    ],
+    "billFetchNewUserStep": [
+      "const billerId = ctx.providers?.[0]?.billerid ?? \"\";",
+      "ctx.billFetch = await billFetchNewUserStep(apiClient, ctx.authToken, billerId, ctx.providerDetails?.data?.customer_params, input.mobile, input);"
+    ],
+    "utilitiesBillsByCustomerIdStep": [
+      "ctx.utilitiesBills = await utilitiesBillsByCustomerIdStep(apiClient, ctx.authToken, ctx.billFetch?.customer_id ?? 0);"
+    ]
+  },
+  "serviceClassAliases": {
+    "ccbp.utilities_bills_v3": "CcbpBillDeskBillsService",
+    "ccbp.utilities_bills_v1": "CcbpBillDeskBillsService",
+    "ccbp.utilities_bills_v3_null": "CcbpBillDeskBillsService",
+    "eqx.update_customer_details": "EqxUpdateCustomerService"
+  },
+  "serviceMethodAliases": {
+    "ccbp.utilities_bills_v3": "utilitiesBillsByCustomerId",
+    "ccbp.utilities_bills_v1": "utilitiesBillsByCustomerId",
+    "ccbp.utilities_bills_v3_null": "utilitiesBillsByCustomerId",
+    "eqx.update_customer_details": "updateCustomerDetails"
+  },
+  "authHeadersImport": "tests/integration/bbps/ccbp/shared/headers",
+  "authHeadersBuilder": "buildBBPSHeadersRaw"
+}

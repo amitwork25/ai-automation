@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "GET /bbps/v1/billDesk/transactions/{customerId} success body",
+  "type": "object",
+  "properties": {}
+}

@@ -1,0 +1,284 @@
+{
+  "schemaVersion": "03-repo-index-v1",
+  "productId": "bbps/ccbp",
+  "repoRoot": "/Users/amit/Downloads/personalProject/ai-automation/workspace/framework",
+  "services": [
+    {
+      "className": "AuthSendOtpService",
+      "filePath": "src/services/eqx/bbps/ccbp/AuthSendOtpService.ts"
+    },
+    {
+      "className": "AuthVerifyOtpService",
+      "filePath": "src/services/eqx/bbps/ccbp/AuthVerifyOtpService.ts"
+    },
+    {
+      "className": "CcbpBillDeskBillsService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpBillDeskBillsService.ts"
+    },
+    {
+      "className": "CcbpBillDeskWebhookService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpBillDeskWebhookService.ts"
+    },
+    {
+      "className": "CcbpBillFetchConsentService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpBillFetchConsentService.ts"
+    },
+    {
+      "className": "CcbpBillFetchService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpBillFetchService.ts"
+    },
+    {
+      "className": "CcbpBillStatusGetService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpBillStatusGetService.ts"
+    },
+    {
+      "className": "CcbpBillStatusPatchService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpBillStatusPatchService.ts"
+    },
+    {
+      "className": "CcbpBureauDataService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpBureauDataService.ts"
+    },
+    {
+      "className": "CcbpCheckoutAttemptService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpCheckoutAttemptService.ts"
+    },
+    {
+      "className": "CcbpCheckoutOptionsService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpCheckoutOptionsService.ts"
+    },
+    {
+      "className": "CcbpClaimGoldRewardService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpClaimGoldRewardService.ts"
+    },
+    {
+      "className": "CcbpComplaintsService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpComplaintsService.ts"
+    },
+    {
+      "className": "CcbpCustomerProfileService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpCustomerProfileService.ts"
+    },
+    {
+      "className": "CcbpDashboardBlocksService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpDashboardBlocksService.ts"
+    },
+    {
+      "className": "CcbpHomePageService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpHomePageService.ts"
+    },
+    {
+      "className": "CcbpHomepageRemindersService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpHomepageRemindersService.ts"
+    },
+    {
+      "className": "CcbpHomepageWidgetsService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpHomepageWidgetsService.ts"
+    },
+    {
+      "className": "CcbpOrdersCreateAutoAttemptService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpOrdersCreateAutoAttemptService.ts"
+    },
+    {
+      "className": "CcbpOrdersCreateService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpOrdersCreateService.ts"
+    },
+    {
+      "className": "CcbpPaymentsCallbackService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpPaymentsCallbackService.ts"
+    },
+    {
+      "className": "CcbpProviderDetailsService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpProviderDetailsService.ts"
+    },
+    {
+      "className": "CcbpProvidersListService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpProvidersListService.ts"
+    },
+    {
+      "className": "CcbpTransactionsService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpTransactionsService.ts"
+    },
+    {
+      "className": "CcbpValidateGoldRewardService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpValidateGoldRewardService.ts"
+    },
+    {
+      "className": "CcbpVariantsService",
+      "filePath": "src/services/eqx/bbps/ccbp/CcbpVariantsService.ts"
+    }
+  ],
+  "steps": [
+    {
+      "name": "getCcbpTestData",
+      "filePath": "tests/integration/bbps/ccbp/shared/steps.ts",
+      "kind": "function"
+    },
+    {
+      "name": "sendOtpStep",
+      "filePath": "tests/integration/bbps/ccbp/shared/steps.ts",
+      "kind": "async_function"
+    },
+    {
+      "name": "verifyOtpStep",
+      "filePath": "tests/integration/bbps/ccbp/shared/steps.ts",
+      "kind": "async_function"
+    },
+    {
+      "name": "updateCustomerDetailsStep",
+      "filePath": "tests/integration/bbps/ccbp/shared/steps.ts",
+      "kind": "async_function"
+    },
+    {
+      "name": "dashboardBlocksStep",
+      "filePath": "tests/integration/bbps/ccbp/shared/steps.ts",
+      "kind": "async_function"
+    },
+    {
+      "name": "homePageStep",
+      "filePath": "tests/integration/bbps/ccbp/shared/steps.ts",
+      "kind": "async_function"
+    },
+    {
+      "name": "bureauDataStep",
+      "filePath": "tests/integration/bbps/ccbp/shared/steps.ts",
+      "kind": "async_function"
+    },
+    {
+      "name": "customerProfileStep",
+      "filePath": "tests/integration/bbps/ccbp/shared/steps.ts",
+      "kind": "async_function"
+    },
+    {
+      "name": "providersListStep",
+      "filePath": "tests/integration/bbps/ccbp/shared/steps.ts",
+      "kind": "async_function"
+    },
+    {
+      "name": "variantsStep",
+      "filePath": "tests/integration/bbps/ccbp/shared/steps.ts",
+      "kind": "async_function"
+    },
+    {
+      "name": "providerDetailsStep",
+      "filePath": "tests/integration/bbps/ccbp/shared/steps.ts",
+      "kind": "async_function"
+    },
+    {
+      "name": "billFetchNewUserStep",
+      "filePath": "tests/integration/bbps/ccbp/shared/steps.ts",
+      "kind": "async_function"
+    },
+    {
+      "name": "utilitiesBillsByCustomerIdStep",
+      "filePath": "tests/integration/bbps/ccbp/shared/steps.ts",
+      "kind": "async_function"
+    }
+  ],
+  "journeys": [
+    {
+      "name": "runCcbpNewUserJourney",
+      "filePath": "tests/integration/bbps/ccbp/new-user/journey.ts",
+      "kind": "async_function"
+    },
+    {
+      "name": "runCcbpNewUserJourneyWithOrdersAndCheckout",
+      "filePath": "tests/integration/bbps/ccbp/new-user/journey.ts",
+      "kind": "async_function"
+    },
+    {
+      "name": "runCcbpNewUserJourneyThroughProviderDetails",
+      "filePath": "tests/integration/bbps/ccbp/new-user/journey.ts",
+      "kind": "async_function"
+    }
+  ],
+  "assertions": [
+    {
+      "name": "assertUpdateCustomerDetailsAccepted",
+      "filePath": "tests/integration/bbps/ccbp/new-user/assertions.ts",
+      "kind": "function"
+    },
+    {
+      "name": "assertCcbpNewUserJourneyContracts",
+      "filePath": "tests/integration/bbps/ccbp/new-user/assertions.ts",
+      "kind": "function"
+    },
+    {
+      "name": "assertCcbpNewUserCheckoutContracts",
+      "filePath": "tests/integration/bbps/ccbp/new-user/assertions.ts",
+      "kind": "function"
+    },
+    {
+      "name": "assertBillFetchMatchesEqxDb",
+      "filePath": "tests/integration/bbps/ccbp/new-user/assertions.ts",
+      "kind": "async_function"
+    },
+    {
+      "name": "assertProviderDetailsMatchesBbpsProvidersDb",
+      "filePath": "tests/integration/bbps/ccbp/new-user/assertions.ts",
+      "kind": "async_function"
+    }
+  ],
+  "specs": [
+    {
+      "name": "ccbp-existing-user-flow-auto-attempt.spec.ts",
+      "filePath": "tests/integration/bbps/ccbp/ccbp-existing-user-flow-auto-attempt.spec.ts"
+    },
+    {
+      "name": "ccbp-existing-user-flow.spec.ts",
+      "filePath": "tests/integration/bbps/ccbp/ccbp-existing-user-flow.spec.ts"
+    },
+    {
+      "name": "ccbp-new-journey-flow-auto-attempt.spec.ts",
+      "filePath": "tests/integration/bbps/ccbp/ccbp-new-journey-flow-auto-attempt.spec.ts"
+    },
+    {
+      "name": "ccbp-new-journey.spec.ts",
+      "filePath": "tests/integration/bbps/ccbp/ccbp-new-journey.spec.ts"
+    },
+    {
+      "name": "new-user-journey.generated.spec.ts",
+      "filePath": "tests/integration/bbps/ccbp/new-user-journey.generated.spec.ts"
+    }
+  ],
+  "folderLayout": {
+    "integrationRoot": "tests/integration/bbps/ccbp",
+    "sharedSteps": "tests/integration/bbps/ccbp/shared/steps.ts",
+    "journeyExample": "tests/integration/bbps/ccbp/new-user/journey.ts",
+    "specExample": "tests/integration/bbps/ccbp/ccbp-new-journey-flow-auto-attempt.spec.ts",
+    "serviceRoot": "src/services/eqx/bbps/ccbp",
+    "schemasRoot": "src/schemas/eqx/bbps/ccbp",
+    "serviceTestRoot": "tests/service/bbps/ccbp",
+    "serviceExample": "tests/service/bbps/ccbp/bill-fetch"
+  },
+  "referencePatterns": [
+    {
+      "id": "shared_steps",
+      "description": "Shared integration steps",
+      "paths": [
+        "tests/integration/bbps/ccbp/shared/steps.ts"
+      ]
+    },
+    {
+      "id": "journey_example",
+      "description": "Reference journey module",
+      "paths": [
+        "tests/integration/bbps/ccbp/new-user/journey.ts"
+      ]
+    },
+    {
+      "id": "integration_spec_example",
+      "description": "Reference integration spec",
+      "paths": [
+        "tests/integration/bbps/ccbp/ccbp-new-journey-flow-auto-attempt.spec.ts"
+      ]
+    },
+    {
+      "id": "service_test_example",
+      "description": "Reference service test folder",
+      "paths": [
+        "tests/service/bbps/ccbp/bill-fetch"
+      ]
+    }
+  ]
+}

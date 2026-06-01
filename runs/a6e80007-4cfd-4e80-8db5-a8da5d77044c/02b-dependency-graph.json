@@ -1,0 +1,131 @@
+{
+  "edges": [
+    {
+      "from": "eqx.update_customer_details",
+      "to": "ccbp.dashboard_blocks",
+      "via": "session"
+    },
+    {
+      "from": "ccbp.provider_details",
+      "to": "ccbp.bill_fetch",
+      "via": "authenticators"
+    },
+    {
+      "from": "ccbp.bill_fetch",
+      "to": "ccbp.utilities_bills_v3",
+      "via": "customer_id"
+    },
+    {
+      "from": "ccbp.bill_fetch",
+      "to": "ccbp.orders_create",
+      "via": "validation_id"
+    },
+    {
+      "from": "ccbp.dashboard_blocks",
+      "to": "ccbp.bureau_data",
+      "via": "navigation"
+    },
+    {
+      "from": "ccbp.bureau_data",
+      "to": "ccbp.home_page",
+      "via": "navigation"
+    },
+    {
+      "from": "ccbp.home_page",
+      "to": "ccbp.providers_list",
+      "via": "utilityId"
+    },
+    {
+      "from": "ccbp.providers_list",
+      "to": "ccbp.variants",
+      "via": "billerId"
+    },
+    {
+      "from": "ccbp.variants",
+      "to": "ccbp.provider_details",
+      "via": "billerId"
+    },
+    {
+      "from": "ccbp.utilities_bills_v3",
+      "to": "ccbp.orders_create",
+      "via": "validation_id"
+    },
+    {
+      "from": "ccbp.orders_create",
+      "to": "ccbp.checkout_options",
+      "via": "checkout_token"
+    },
+    {
+      "from": "ccbp.checkout_options",
+      "to": "ccbp.checkout_attempt",
+      "via": "checkout_token"
+    },
+    {
+      "from": "ccbp.checkout_attempt",
+      "to": "ccbp.billdesk_webhook",
+      "via": "order_id"
+    },
+    {
+      "from": "ccbp.billdesk_webhook",
+      "to": "ccbp.payments_callback",
+      "via": "order_id"
+    }
+  ],
+  "executionLayers": [
+    [
+      "eqx.update_customer_details",
+      "ccbp.homepage_reminders",
+      "ccbp.homepage_widgets",
+      "ccbp.customer_profile",
+      "ccbp.bill_fetch_consent",
+      "ccbp.utilities_bills_v3_null",
+      "ccbp.utilities_bills_v1",
+      "ccbp.transactions",
+      "ccbp.orders_create_auto_attempt",
+      "ccbp.complaints",
+      "ccbp.claim_gold_reward",
+      "ccbp.validate_gold_reward",
+      "ccbp.bill_status_get",
+      "ccbp.bill_status_patch"
+    ],
+    [
+      "ccbp.dashboard_blocks"
+    ],
+    [
+      "ccbp.bureau_data"
+    ],
+    [
+      "ccbp.home_page"
+    ],
+    [
+      "ccbp.providers_list"
+    ],
+    [
+      "ccbp.variants"
+    ],
+    [
+      "ccbp.provider_details"
+    ],
+    [
+      "ccbp.bill_fetch"
+    ],
+    [
+      "ccbp.utilities_bills_v3"
+    ],
+    [
+      "ccbp.orders_create"
+    ],
+    [
+      "ccbp.checkout_options"
+    ],
+    [
+      "ccbp.checkout_attempt"
+    ],
+    [
+      "ccbp.billdesk_webhook"
+    ],
+    [
+      "ccbp.payments_callback"
+    ]
+  ]
+}

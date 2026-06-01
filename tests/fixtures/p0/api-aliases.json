@@ -1,0 +1,25 @@
+{
+  "productId": "bbps/ccbp",
+  "aliases": [
+    {
+      "apiId": "ccbp.bill_fetch",
+      "phrases": ["bill fetch", "fetch bill", "bbps bill fetch"]
+    },
+    {
+      "apiId": "ccbp.bills",
+      "phrases": ["get bills", "available bills", "list bills"]
+    },
+    {
+      "apiId": "auth.send_otp",
+      "phrases": ["send otp"]
+    },
+    {
+      "apiId": "auth.verify_otp",
+      "phrases": ["verify otp"]
+    },
+    {
+      "composite": "login",
+      "apiIds": ["auth.send_otp", "auth.verify_otp"]
+    }
+  ]
+}

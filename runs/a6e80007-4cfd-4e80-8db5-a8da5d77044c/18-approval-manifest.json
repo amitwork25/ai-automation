@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "18-approval-manifest-v1",
+  "productId": "bbps/ccbp",
+  "runId": "a6e80007-4cfd-4e80-8db5-a8da5d77044c",
+  "pendingRuleIds": [],
+  "pendingCustomAssertIds": [],
+  "unmappedManualSteps": [],
+  "approvalStatus": "none_required"
+}

@@ -1,0 +1,100 @@
+{
+  "item": [
+    {
+      "name": "Send OTP",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "https://api.example.com/auth/send-otp"
+        }
+      },
+      "response": [
+        {
+          "code": 200,
+          "body": "{\"request_id\":\"req_001\"}"
+        }
+      ]
+    },
+    {
+      "name": "Verify OTP",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "https://api.example.com/auth/verify-otp"
+        }
+      },
+      "dependsOn": [
+        {
+          "apiId": "auth.send_otp",
+          "via": "request_id",
+          "extract": "data.request_id",
+          "inject": "body.request_id"
+        }
+      ],
+      "response": [
+        {
+          "code": 200,
+          "body": "{\"auth_token\":\"token_001\"}"
+        }
+      ]
+    },
+    {
+      "name": "Bill Fetch",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "https://api.example.com/bbps/v1/ccbp/bill-fetch"
+        },
+        "header": [
+          {
+            "key": "authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ]
+      },
+      "dependsOn": [
+        {
+          "apiId": "auth.verify_otp",
+          "via": "auth_token",
+          "extract": "data.auth_token",
+          "inject": "authorization"
+        }
+      ],
+      "response": [
+        {
+          "code": 200,
+          "body": "{\"validation_id\":\"val_01\",\"bill_amount\":15420.5}"
+        }
+      ]
+    },
+    {
+      "name": "Get Bills",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://api.example.com/bbps/v1/ccbp/bills"
+        },
+        "header": [
+          {
+            "key": "authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ]
+      },
+      "dependsOn": [
+        {
+          "apiId": "auth.verify_otp",
+          "via": "auth_token",
+          "extract": "data.auth_token",
+          "inject": "authorization"
+        }
+      ],
+      "response": [
+        {
+          "code": 200,
+          "body": "{\"items\":[{\"bill_id\":\"b1\"}]}"
+        }
+      ]
+    }
+  ]
+}

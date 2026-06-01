@@ -1,0 +1,689 @@
+{
+  "schemaVersion": "15-validation-report-v1",
+  "productId": "bbps/ccbp",
+  "repoRoot": "/Users/amit/Downloads/personalProject/ai-automation/workspace/framework",
+  "validationStatus": "pass",
+  "checks": [
+    {
+      "id": "artifact:01b-manual-test-cases.json",
+      "status": "pass",
+      "message": "Found 01b-manual-test-cases.json"
+    },
+    {
+      "id": "artifact:02-api-contracts.json",
+      "status": "pass",
+      "message": "Found 02-api-contracts.json"
+    },
+    {
+      "id": "artifact:04-journey-spec.json",
+      "status": "pass",
+      "message": "Found 04-journey-spec.json"
+    },
+    {
+      "id": "artifact:03-repo-index.json",
+      "status": "pass",
+      "message": "Found 03-repo-index.json"
+    },
+    {
+      "id": "artifact:05-business-rules.json",
+      "status": "pass",
+      "message": "Found 05-business-rules.json"
+    },
+    {
+      "id": "artifact:06-business-rules-mapped.json",
+      "status": "pass",
+      "message": "Found 06-business-rules-mapped.json"
+    },
+    {
+      "id": "artifact:07-journey-plan.json",
+      "status": "pass",
+      "message": "Found 07-journey-plan.json"
+    },
+    {
+      "id": "artifact:09-api-codegen-report.json",
+      "status": "pass",
+      "message": "Found 09-api-codegen-report.json"
+    },
+    {
+      "id": "artifact:10-service-test-report.json",
+      "status": "pass",
+      "message": "Found 10-service-test-report.json"
+    },
+    {
+      "id": "artifact:11-assertion-compile-report.json",
+      "status": "pass",
+      "message": "Found 11-assertion-compile-report.json"
+    },
+    {
+      "id": "artifact:13-journey-codegen-report.json",
+      "status": "pass",
+      "message": "Found 13-journey-codegen-report.json"
+    },
+    {
+      "id": "artifact:14-playwright-project-report.json",
+      "status": "pass",
+      "message": "Found 14-playwright-project-report.json"
+    },
+    {
+      "id": "generated:src/models/eqx/update-customer-details.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/update-customer-details.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/update-customer-details-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/update-customer-details-response.schema.json"
+    },
+    {
+      "id": "generated:src/schemas/eqx/update-customer-details-request.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/update-customer-details-request.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/EqxUpdateCustomerDetailsService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/EqxUpdateCustomerDetailsService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/dashboard-blocks.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/dashboard-blocks.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/dashboard-blocks-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/dashboard-blocks-response.schema.json"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/dashboard-blocks-request.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/dashboard-blocks-request.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpDashboardBlocksService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpDashboardBlocksService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/bureau-data.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/bureau-data.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/bureau-data-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/bureau-data-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpBureauDataService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpBureauDataService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/home-page.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/home-page.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/home-page-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/home-page-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpHomePageService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpHomePageService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/homepage-reminders.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/homepage-reminders.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/homepage-reminders-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/homepage-reminders-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpHomepageRemindersService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpHomepageRemindersService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/homepage-widgets.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/homepage-widgets.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/homepage-widgets-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/homepage-widgets-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpHomepageWidgetsService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpHomepageWidgetsService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/customer-profile.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/customer-profile.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/customer-profile-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/customer-profile-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpCustomerProfileService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpCustomerProfileService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/providers-list.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/providers-list.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/providers-list-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/providers-list-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpProvidersListService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpProvidersListService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/variants.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/variants.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/variants-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/variants-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpVariantsService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpVariantsService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/provider-details.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/provider-details.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/provider-details-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/provider-details-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpProviderDetailsService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpProviderDetailsService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/bill-fetch.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/bill-fetch.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/bill-fetch-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/bill-fetch-response.schema.json"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/bill-fetch-request.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/bill-fetch-request.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpBillFetchService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpBillFetchService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/bill-fetch-consent.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/bill-fetch-consent.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/bill-fetch-consent-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/bill-fetch-consent-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpBillFetchConsentService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpBillFetchConsentService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/utilities-bills-v3-null.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/utilities-bills-v3-null.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/utilities-bills-v3-null-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/utilities-bills-v3-null-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpUtilitiesBillsV3NullService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpUtilitiesBillsV3NullService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/utilities-bills-v3.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/utilities-bills-v3.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/utilities-bills-v3-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/utilities-bills-v3-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpUtilitiesBillsV3Service.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpUtilitiesBillsV3Service.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/utilities-bills-v1.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/utilities-bills-v1.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/utilities-bills-v1-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/utilities-bills-v1-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpUtilitiesBillsV1Service.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpUtilitiesBillsV1Service.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/transactions.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/transactions.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/transactions-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/transactions-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpTransactionsService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpTransactionsService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/orders-create.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/orders-create.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/orders-create-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/orders-create-response.schema.json"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/orders-create-request.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/orders-create-request.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpOrdersCreateService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpOrdersCreateService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/orders-create-auto-attempt.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/orders-create-auto-attempt.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/orders-create-auto-attempt-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/orders-create-auto-attempt-response.schema.json"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/orders-create-auto-attempt-request.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/orders-create-auto-attempt-request.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpOrdersCreateAutoAttemptService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpOrdersCreateAutoAttemptService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/checkout-options.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/checkout-options.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/checkout-options-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/checkout-options-response.schema.json"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/checkout-options-request.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/checkout-options-request.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpCheckoutOptionsService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpCheckoutOptionsService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/checkout-attempt.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/checkout-attempt.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/checkout-attempt-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/checkout-attempt-response.schema.json"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/checkout-attempt-request.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/checkout-attempt-request.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpCheckoutAttemptService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpCheckoutAttemptService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/payments-callback.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/payments-callback.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/payments-callback-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/payments-callback-response.schema.json"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/payments-callback-request.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/payments-callback-request.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpPaymentsCallbackService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpPaymentsCallbackService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/billdesk-webhook.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/billdesk-webhook.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/billdesk-webhook-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/billdesk-webhook-response.schema.json"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/billdesk-webhook-request.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/billdesk-webhook-request.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpBilldeskWebhookService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpBilldeskWebhookService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/complaints.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/complaints.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/complaints-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/complaints-response.schema.json"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/complaints-request.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/complaints-request.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpComplaintsService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpComplaintsService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/claim-gold-reward.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/claim-gold-reward.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/claim-gold-reward-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/claim-gold-reward-response.schema.json"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/claim-gold-reward-request.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/claim-gold-reward-request.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpClaimGoldRewardService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpClaimGoldRewardService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/validate-gold-reward.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/validate-gold-reward.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/validate-gold-reward-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/validate-gold-reward-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpValidateGoldRewardService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpValidateGoldRewardService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/bill-status-get.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/bill-status-get.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/bill-status-get-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/bill-status-get-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpBillStatusGetService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpBillStatusGetService.ts"
+    },
+    {
+      "id": "generated:src/models/eqx/bbps/ccbp/bill-status-patch.models.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/models/eqx/bbps/ccbp/bill-status-patch.models.ts"
+    },
+    {
+      "id": "generated:src/schemas/eqx/bbps/ccbp/bill-status-patch-response.schema.json",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/schemas/eqx/bbps/ccbp/bill-status-patch-response.schema.json"
+    },
+    {
+      "id": "generated:src/services/eqx/bbps/ccbp/CcbpBillStatusPatchService.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: src/services/eqx/bbps/ccbp/CcbpBillStatusPatchService.ts"
+    },
+    {
+      "id": "generated:tests/service/eqx/update-customer-details/update-customer-details.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/eqx/update-customer-details/update-customer-details.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/dashboard-blocks/dashboard-blocks.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/dashboard-blocks/dashboard-blocks.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/bureau-data/bureau-data.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/bureau-data/bureau-data.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/home-page/home-page.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/home-page/home-page.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/homepage-reminders/homepage-reminders.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/homepage-reminders/homepage-reminders.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/homepage-widgets/homepage-widgets.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/homepage-widgets/homepage-widgets.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/customer-profile/customer-profile.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/customer-profile/customer-profile.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/providers-list/providers-list.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/providers-list/providers-list.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/variants/variants.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/variants/variants.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/provider-details/provider-details.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/provider-details/provider-details.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/bill-fetch/bill-fetch.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/bill-fetch/bill-fetch.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/bill-fetch-consent/bill-fetch-consent.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/bill-fetch-consent/bill-fetch-consent.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/utilities-bills-v3-null/utilities-bills-v3-null.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/utilities-bills-v3-null/utilities-bills-v3-null.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/utilities-bills-v3/utilities-bills-v3.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/utilities-bills-v3/utilities-bills-v3.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/utilities-bills-v1/utilities-bills-v1.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/utilities-bills-v1/utilities-bills-v1.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/transactions/transactions.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/transactions/transactions.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/orders-create/orders-create.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/orders-create/orders-create.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/orders-create-auto-attempt/orders-create-auto-attempt.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/orders-create-auto-attempt/orders-create-auto-attempt.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/checkout-options/checkout-options.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/checkout-options/checkout-options.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/checkout-attempt/checkout-attempt.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/checkout-attempt/checkout-attempt.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/payments-callback/payments-callback.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/payments-callback/payments-callback.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/billdesk-webhook/billdesk-webhook.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/billdesk-webhook/billdesk-webhook.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/complaints/complaints.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/complaints/complaints.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/claim-gold-reward/claim-gold-reward.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/claim-gold-reward/claim-gold-reward.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/validate-gold-reward/validate-gold-reward.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/validate-gold-reward/validate-gold-reward.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/bill-status-get/bill-status-get.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/bill-status-get/bill-status-get.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/service/bbps/ccbp/bill-status-patch/bill-status-patch.service.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/service/bbps/ccbp/bill-status-patch/bill-status-patch.service.spec.ts"
+    },
+    {
+      "id": "generated:tests/integration/bbps/ccbp/new-user/assertions.generated.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/integration/bbps/ccbp/new-user/assertions.generated.ts"
+    },
+    {
+      "id": "generated:tests/integration/bbps/ccbp/new-user/types.generated.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/integration/bbps/ccbp/new-user/types.generated.ts"
+    },
+    {
+      "id": "generated:tests/integration/bbps/ccbp/new-user/journey.generated.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/integration/bbps/ccbp/new-user/journey.generated.ts"
+    },
+    {
+      "id": "generated:tests/integration/bbps/ccbp/new-user-journey.generated.spec.ts",
+      "status": "pass",
+      "message": "Generated file exists under run output: tests/integration/bbps/ccbp/new-user-journey.generated.spec.ts"
+    },
+    {
+      "id": "codegen-root",
+      "status": "pass",
+      "message": "Run codegen root: /Users/amit/Downloads/personalProject/ai-automation/runs/a6e80007-4cfd-4e80-8db5-a8da5d77044c/generated"
+    }
+  ],
+  "gapsRemaining": []
+}

@@ -1,0 +1,377 @@
+{
+  "productId": "bbps/ccbp",
+  "apis": [
+    {
+      "apiId": "eqx.update_customer_details",
+      "method": "PUT",
+      "path": "/update-customer-details",
+      "auth": "bearer",
+      "title": "Update customer profile after OTP",
+      "operationId": "eqx.update_customer_details",
+      "requestSchemaRef": "UpdateCustomerDetailsRequest",
+      "responseSchemaRef": "UpdateCustomerDetailsResponse",
+      "requestRequired": [
+        "device_id",
+        "first_name",
+        "last_name"
+      ],
+      "responseFields": [
+        "status",
+        "message",
+        "data"
+      ]
+    },
+    {
+      "apiId": "ccbp.dashboard_blocks",
+      "method": "POST",
+      "path": "/dashboard/blocks",
+      "auth": "bearer",
+      "title": "Dashboard blocks for BBPS entry",
+      "operationId": "ccbp.dashboard_blocks",
+      "requestSchemaRef": "DashboardBlocksRequest",
+      "responseSchemaRef": "DashboardBlocksResponse",
+      "requestRequired": [],
+      "responseFields": [
+        "status",
+        "data"
+      ]
+    },
+    {
+      "apiId": "ccbp.bureau_data",
+      "method": "GET",
+      "path": "/bbps/v1/billDesk/homepage/bureauData",
+      "auth": "bearer",
+      "title": "Bureau / suggested cards for new user",
+      "operationId": "ccbp.bureau_data",
+      "responseSchemaRef": "CcbpBureauDataResponse",
+      "requestRequired": [],
+      "responseFields": [
+        "success",
+        "data"
+      ]
+    },
+    {
+      "apiId": "ccbp.home_page",
+      "method": "GET",
+      "path": "/bbps/v1/billDesk/bbps/home-page",
+      "auth": "bearer",
+      "title": "Credit Card BBPS home page",
+      "operationId": "ccbp.home_page",
+      "responseSchemaRef": "CcbpHomePageResponse",
+      "requestRequired": [],
+      "responseFields": [
+        "success",
+        "data"
+      ]
+    },
+    {
+      "apiId": "ccbp.homepage_reminders",
+      "method": "GET",
+      "path": "/bbps/v1/billDesk/homepage/reminders",
+      "auth": "bearer",
+      "title": "Homepage reminders",
+      "operationId": "ccbp.homepage_reminders",
+      "responseSchemaRef": "HomepageRemindersResponse",
+      "requestRequired": [],
+      "responseFields": []
+    },
+    {
+      "apiId": "ccbp.homepage_widgets",
+      "method": "GET",
+      "path": "/bbps/v1/billDesk/homepage/widgets",
+      "auth": "bearer",
+      "title": "Homepage widgets",
+      "operationId": "ccbp.homepage_widgets",
+      "responseSchemaRef": "HomepageWidgetsResponse",
+      "requestRequired": [],
+      "responseFields": []
+    },
+    {
+      "apiId": "ccbp.customer_profile",
+      "method": "GET",
+      "path": "/bbps/v1/billDesk/customer-profile",
+      "auth": "bearer",
+      "title": "Customer / BBPS profile",
+      "operationId": "ccbp.customer_profile",
+      "responseSchemaRef": "CcbpCustomerProfileResponse",
+      "requestRequired": [],
+      "responseFields": [
+        "name",
+        "email",
+        "mobile"
+      ]
+    },
+    {
+      "apiId": "ccbp.providers_list",
+      "method": "GET",
+      "path": "/bbps/v1/billDesk/utilities/{utilityId}/providers",
+      "auth": "bearer",
+      "title": "Supported banks / billers list",
+      "operationId": "ccbp.providers_list",
+      "requestRequired": [],
+      "responseFields": []
+    },
+    {
+      "apiId": "ccbp.variants",
+      "method": "GET",
+      "path": "/bbps/v1/billDesk/bbps/variants",
+      "auth": "bearer",
+      "title": "Card type / network variants",
+      "operationId": "ccbp.variants",
+      "responseSchemaRef": "CcbpVariantsResponse",
+      "requestRequired": [],
+      "responseFields": [
+        "success",
+        "data"
+      ]
+    },
+    {
+      "apiId": "ccbp.provider_details",
+      "method": "GET",
+      "path": "/bbps/v1/billDesk/provider/{billerId}",
+      "auth": "bearer",
+      "title": "Biller details and customer_params for bill-fetch",
+      "operationId": "ccbp.provider_details",
+      "responseSchemaRef": "CcbpProviderDetailsResponse",
+      "requestRequired": [],
+      "responseFields": [
+        "status",
+        "data"
+      ]
+    },
+    {
+      "apiId": "ccbp.bill_fetch",
+      "method": "POST",
+      "path": "/bbps/v1/billDesk/bbps/bill-fetch",
+      "auth": "bearer",
+      "title": "Fetch bill for biller using authenticators",
+      "operationId": "ccbp.bill_fetch",
+      "requestSchemaRef": "CcbpBillFetchRequest",
+      "responseSchemaRef": "CcbpBillFetchResponse",
+      "requestRequired": [
+        "billerId",
+        "authenticators",
+        "billFetchApproval",
+        "foundViaSms"
+      ],
+      "responseFields": [
+        "customer_id",
+        "validation_id",
+        "biller_id",
+        "utility_id",
+        "bill_amount",
+        "bill_status",
+        "account_no",
+        "display_account_no",
+        "bill_number",
+        "provider_name"
+      ]
+    },
+    {
+      "apiId": "ccbp.bill_fetch_consent",
+      "method": "POST",
+      "path": "/bbps/v1/billDesk/bbps/bill-fetch/consent",
+      "auth": "bearer",
+      "title": "Bill fetch consent",
+      "operationId": "ccbp.bill_fetch_consent",
+      "responseSchemaRef": "CcbpBillFetchConsentResponse",
+      "requestRequired": [],
+      "responseFields": [
+        "status",
+        "body"
+      ]
+    },
+    {
+      "apiId": "ccbp.utilities_bills_v3_null",
+      "method": "GET",
+      "path": "/bbps/v3/billDesk/utilities/null/bills",
+      "auth": "bearer",
+      "title": "Utilities bills (null customer placeholder)",
+      "operationId": "ccbp.utilities_bills_v3_null",
+      "responseSchemaRef": "CcbpBillDeskUtilitiesBillsResponse",
+      "requestRequired": [],
+      "responseFields": []
+    },
+    {
+      "apiId": "ccbp.utilities_bills_v3",
+      "method": "GET",
+      "path": "/bbps/v3/billDesk/utilities/{customerId}/bills",
+      "auth": "bearer",
+      "title": "My bills list after bill-fetch",
+      "operationId": "ccbp.utilities_bills_v3",
+      "responseSchemaRef": "CcbpBillDeskUtilitiesBillsResponse",
+      "requestRequired": [],
+      "responseFields": []
+    },
+    {
+      "apiId": "ccbp.utilities_bills_v1",
+      "method": "GET",
+      "path": "/bbps/v1/billDesk/utilities/{customerId}/bills",
+      "auth": "bearer",
+      "title": "Utilities bills v1",
+      "operationId": "ccbp.utilities_bills_v1",
+      "requestRequired": [],
+      "responseFields": []
+    },
+    {
+      "apiId": "ccbp.transactions",
+      "method": "GET",
+      "path": "/bbps/v1/billDesk/transactions/{customerId}",
+      "auth": "bearer",
+      "title": "Transaction history",
+      "operationId": "ccbp.transactions",
+      "requestRequired": [],
+      "responseFields": []
+    },
+    {
+      "apiId": "ccbp.orders_create",
+      "method": "POST",
+      "path": "/bbps/v1/billDesk/bbps/v2/orders/create",
+      "auth": "bearer",
+      "title": "Create payment order",
+      "operationId": "ccbp.orders_create",
+      "requestSchemaRef": "CcbpOrdersCreateRequest",
+      "responseSchemaRef": "CcbpOrdersCreateResponse",
+      "requestRequired": [
+        "billerId",
+        "account_no",
+        "amount",
+        "category",
+        "offerId",
+        "validationId",
+        "customer_params",
+        "isNewFlow"
+      ],
+      "responseFields": [
+        "status",
+        "status_code",
+        "data"
+      ]
+    },
+    {
+      "apiId": "ccbp.orders_create_auto_attempt",
+      "method": "POST",
+      "path": "/bbps/v1/billDesk/bbps/v2/orders/create/auto-attempt",
+      "auth": "bearer",
+      "title": "Create order with auto payment attempt",
+      "operationId": "ccbp.orders_create_auto_attempt",
+      "requestSchemaRef": "CcbpOrdersCreateAutoAttemptRequest",
+      "responseSchemaRef": "CcbpOrdersCreateAutoAttemptResponse",
+      "requestRequired": [],
+      "responseFields": []
+    },
+    {
+      "apiId": "ccbp.checkout_options",
+      "method": "POST",
+      "path": "/stashpayments/v2/checkout/options",
+      "auth": "bearer",
+      "title": "Checkout payment options",
+      "operationId": "ccbp.checkout_options",
+      "requestSchemaRef": "CcbpCheckoutOptionsRequest",
+      "responseSchemaRef": "CcbpCheckoutOptionsResponse",
+      "requestRequired": [],
+      "responseFields": []
+    },
+    {
+      "apiId": "ccbp.checkout_attempt",
+      "method": "POST",
+      "path": "/stashpayments/v2/attempts",
+      "auth": "bearer",
+      "title": "Checkout payment attempt",
+      "operationId": "ccbp.checkout_attempt",
+      "requestSchemaRef": "CcbpCheckoutAttemptRequest",
+      "responseSchemaRef": "CcbpCheckoutAttemptResponse",
+      "requestRequired": [],
+      "responseFields": []
+    },
+    {
+      "apiId": "ccbp.payments_callback",
+      "method": "POST",
+      "path": "/bbps/v1/billDesk/bbps/payments/callback",
+      "auth": "bearer",
+      "title": "Payments callback after checkout",
+      "operationId": "ccbp.payments_callback",
+      "requestSchemaRef": "CcbpPaymentsCallbackRequest",
+      "requestRequired": [],
+      "responseFields": []
+    },
+    {
+      "apiId": "ccbp.billdesk_webhook",
+      "method": "POST",
+      "path": "/bbps/v1/billDesk/bbps/billdesk/webhook",
+      "auth": "bearer",
+      "title": "BillDesk payment webhook",
+      "operationId": "ccbp.billdesk_webhook",
+      "requestSchemaRef": "CcbpBilldeskWebhookRequest",
+      "requestRequired": [
+        "order_id",
+        "status",
+        "client_id",
+        "payment_method"
+      ],
+      "responseFields": []
+    },
+    {
+      "apiId": "ccbp.complaints",
+      "method": "POST",
+      "path": "/bbps/v1/billDesk/bbps/complaints",
+      "auth": "bearer",
+      "title": "Raise BBPS complaint",
+      "operationId": "ccbp.complaints",
+      "requestSchemaRef": "CcbpComplaintsRequest",
+      "responseSchemaRef": "CcbpComplaintsResponse",
+      "requestRequired": [],
+      "responseFields": []
+    },
+    {
+      "apiId": "ccbp.claim_gold_reward",
+      "method": "POST",
+      "path": "/bbps/v1/billDesk/claim-reward/gold",
+      "auth": "bearer",
+      "title": "Claim gold reward",
+      "operationId": "ccbp.claim_gold_reward",
+      "requestSchemaRef": "ClaimGoldRewardBody",
+      "responseSchemaRef": "ClaimGoldRewardResponse",
+      "requestRequired": [
+        "order_id",
+        "amount"
+      ],
+      "responseFields": [
+        "greeting",
+        "heading"
+      ]
+    },
+    {
+      "apiId": "ccbp.validate_gold_reward",
+      "method": "GET",
+      "path": "/bbps/v1/billDesk/validateGoldReward",
+      "auth": "bearer",
+      "title": "Validate gold reward eligibility",
+      "operationId": "ccbp.validate_gold_reward",
+      "requestRequired": [],
+      "responseFields": [
+        "success"
+      ]
+    },
+    {
+      "apiId": "ccbp.bill_status_get",
+      "method": "GET",
+      "path": "/bbps/v1/billDesk/bill/status",
+      "auth": "bearer",
+      "title": "Get bill status",
+      "operationId": "ccbp.bill_status_get",
+      "requestRequired": [],
+      "responseFields": []
+    },
+    {
+      "apiId": "ccbp.bill_status_patch",
+      "method": "PATCH",
+      "path": "/bbps/v1/billDesk/bill/status",
+      "auth": "bearer",
+      "title": "Update bill status",
+      "operationId": "ccbp.bill_status_patch",
+      "requestRequired": [],
+      "responseFields": []
+    }
+  ]
+}

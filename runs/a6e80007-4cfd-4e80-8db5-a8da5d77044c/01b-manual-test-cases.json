@@ -1,0 +1,145 @@
+{
+  "productId": "bbps/ccbp",
+  "manualTcHash": "sha256:08fc6d1352eedeb2964c402ada3b22aefb0b1476bca93994645410b31b357a8f",
+  "cases": [
+    {
+      "caseId": "TC-39",
+      "title": "New user CCBP credit card journey",
+      "persona": "new_user",
+      "journeyTags": [
+        "ccbp_new_user_journey"
+      ],
+      "steps": [
+        "Open the app as a new Credit Card BBPS user (no saved card yet).",
+        "Log in with mobile and complete OTP.",
+        "Complete profile / details step the app needs before BBPS (name, email, etc., as your onboarding shows).",
+        "Open BBPS from the dashboard / entry you use for bill pay.",
+        "View Credit Card home for a new user.",
+        "Open bureau / suggested cards (if your UI shows this step).",
+        "Open customer / BBPS profile in app terms.",
+        "Browse supported banks / billers for Credit Card BBPS.",
+        "Pick card type / network (Visa, Mastercard, etc.).",
+        "Open biller details for the chosen bank.",
+        "Enter card last 4 and registered mobile (and any other asked fields) and fetch bill.",
+        "View “my bills” / utilities list after fetch."
+      ],
+      "expectedResults": [
+        "User can start the journey without already having a paid bill on the home list.",
+        "Login succeeds; session is established.",
+        "Update is accepted; user can proceed (no blocking validation error).",
+        "BBPS (Credit Card) entry is available; user lands on the Credit Card BBPS area.",
+        "No saved cards yet (empty list), ₹0 total due, StashGuard off, no gold reward claimed — a clear “add / set up” style empty state.",
+        "Screen loads successfully but no bureau-sourced cards yet for this new user (empty state).",
+        "Profile shows a real user (name, email, mobile); new CCBP flow flag is on if your product shows it.",
+        "List of providers is not empty; user can pick a bank/biller to continue.",
+        "Variants screen shows popular and other options and major networks (e.g. Visa, Mastercard).",
+        "Details match the chosen biller; fields required to fetch a bill (e.g. last 4 digits, mobile) are shown.",
+        "Bill is found; due amount and status look valid; user is no longer on a completely empty bill list.",
+        "At least one Credit Card bill appears for this user; it matches the bill they just fetched."
+      ],
+      "assertionHints": [],
+      "stepApiRefs": [
+        null,
+        null,
+        null,
+        {
+          "method": "GET",
+          "pathHint": "/bbps/v1/billDesk/customer-profile"
+        },
+        null,
+        null,
+        null,
+        {
+          "method": "GET",
+          "pathHint": "/bbps/v1/billDesk/bbps/home-page"
+        },
+        {
+          "method": "GET",
+          "pathHint": "/bbps/v1/billDesk/bbps/variants"
+        },
+        null,
+        {
+          "method": "POST",
+          "pathHint": "/bbps/v1/billDesk/bbps/bill-fetch"
+        },
+        null
+      ],
+      "stepApiRefGroups": [
+        [],
+        [],
+        [],
+        [
+          {
+            "method": "GET",
+            "pathHint": "/bbps/v1/billDesk/customer-profile"
+          },
+          {
+            "method": "GET",
+            "pathHint": "/bbps/v3/billDesk/utilities/61360/bills"
+          },
+          {
+            "method": "GET",
+            "pathHint": "/bbps/v1/billDesk/bbps/home-page"
+          },
+          {
+            "method": "GET",
+            "pathHint": "/bbps/v1/billDesk/homepage/bureauData"
+          }
+        ],
+        [],
+        [],
+        [],
+        [
+          {
+            "method": "GET",
+            "pathHint": "/bbps/v1/billDesk/bbps/home-page"
+          },
+          {
+            "method": "GET",
+            "pathHint": "/bbps/v1/billDesk/utilities/42/providers"
+          }
+        ],
+        [
+          {
+            "method": "GET",
+            "pathHint": "/bbps/v1/billDesk/bbps/variants"
+          },
+          {
+            "method": "GET",
+            "pathHint": "/bbps/v1/billDesk/provider/BANK00000NATKB"
+          }
+        ],
+        [],
+        [
+          {
+            "method": "POST",
+            "pathHint": "/bbps/v1/billDesk/bbps/bill-fetch"
+          },
+          {
+            "method": "GET",
+            "pathHint": "/bbps/v3/billDesk/utilities/61361/bills"
+          },
+          {
+            "method": "GET",
+            "pathHint": "/bbps/v1/billDesk/bbps/home-page"
+          }
+        ],
+        []
+      ],
+      "stepTypes": [
+        "ui",
+        "ui",
+        "ui",
+        "api",
+        "ui",
+        "ui",
+        "ui",
+        "api",
+        "api",
+        "ui",
+        "api",
+        "ui"
+      ]
+    }
+  ]
+}

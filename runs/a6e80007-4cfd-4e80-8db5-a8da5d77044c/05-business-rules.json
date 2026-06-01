@@ -1,0 +1,276 @@
+{
+  "schemaVersion": "05-business-rules-v1",
+  "productId": "bbps/ccbp",
+  "manualTcHash": "sha256:08fc6d1352eedeb2964c402ada3b22aefb0b1476bca93994645410b31b357a8f",
+  "rules": [
+    {
+      "ruleId": "TC-39_1_user_can_start_the_journey_without_already_havin_na",
+      "caseId": "TC-39",
+      "layer": "non_automatable",
+      "source": "parsedExpected",
+      "text": "User can start the journey without already having a paid bill on the home list.",
+      "manualStepIndex": 1,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_2_login_succeeds_session_is_established_1",
+      "caseId": "TC-39",
+      "layer": "service",
+      "source": "parsedExpected",
+      "text": "Login succeeds; session is established.",
+      "manualStepIndex": 2,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "path": "verify.status",
+      "op": "equals",
+      "expected": 200,
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_3_update_is_accepted_user_can_proceed_no_blocking__2",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "Update is accepted; user can proceed (no blocking validation error).",
+      "manualStepIndex": 3,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "assertFn": "assertUpdateCustomerDetailsAccepted",
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_4_bbps_credit_card_entry_is_available_user_lands_o_na",
+      "caseId": "TC-39",
+      "layer": "non_automatable",
+      "source": "parsedExpected",
+      "text": "BBPS (Credit Card) entry is available; user lands on the Credit Card BBPS area.",
+      "manualStepIndex": 4,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "apiIds": [
+        "ccbp.customer_profile",
+        "ccbp.utilities_bills_v3",
+        "ccbp.home_page",
+        "ccbp.bureau_data"
+      ],
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_5_no_saved_cards_yet_empty_list_0_total_due_stashg_4",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "No saved cards yet (empty list), ₹0 total due, StashGuard off, no gold reward claimed — a clear “add / set up” style empty state.",
+      "manualStepIndex": 5,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "path": "homepage.data.bills",
+      "op": "length",
+      "expected": 0,
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_5_no_saved_cards_yet_empty_list_0_total_due_stashg_5",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "No saved cards yet (empty list), ₹0 total due, StashGuard off, no gold reward claimed — a clear “add / set up” style empty state.",
+      "manualStepIndex": 5,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "path": "homepage.data.totalDueAmount",
+      "op": "equals",
+      "expected": 0,
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_5_no_saved_cards_yet_empty_list_0_total_due_stashg_6",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "No saved cards yet (empty list), ₹0 total due, StashGuard off, no gold reward claimed — a clear “add / set up” style empty state.",
+      "manualStepIndex": 5,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "path": "homepage.data.isStashGaurdEnabled",
+      "op": "equals",
+      "expected": false,
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_5_no_saved_cards_yet_empty_list_0_total_due_stashg_7",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "No saved cards yet (empty list), ₹0 total due, StashGuard off, no gold reward claimed — a clear “add / set up” style empty state.",
+      "manualStepIndex": 5,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "path": "homepage.data.hasUserClaimedGoldReward",
+      "op": "equals",
+      "expected": false,
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_6_screen_loads_successfully_but_no_bureau_sourced__8",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "Screen loads successfully but no bureau-sourced cards yet for this new user (empty state).",
+      "manualStepIndex": 6,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "path": "bureau.data.bureauBills",
+      "op": "length",
+      "expected": 0,
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_7_profile_shows_a_real_user_name_email_mobile_new__9",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "Profile shows a real user (name, email, mobile); new CCBP flow flag is on if your product shows it.",
+      "manualStepIndex": 7,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "path": "customerProfile.customer_id",
+      "op": "gt",
+      "expected": 0,
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_7_profile_shows_a_real_user_name_email_mobile_new__10",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "Profile shows a real user (name, email, mobile); new CCBP flow flag is on if your product shows it.",
+      "manualStepIndex": 7,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "path": "customerProfile.customer_name",
+      "op": "present",
+      "expected": true,
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_7_profile_shows_a_real_user_name_email_mobile_new__11",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "Profile shows a real user (name, email, mobile); new CCBP flow flag is on if your product shows it.",
+      "manualStepIndex": 7,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "path": "customerProfile.email",
+      "op": "present",
+      "expected": true,
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_7_profile_shows_a_real_user_name_email_mobile_new__12",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "Profile shows a real user (name, email, mobile); new CCBP flow flag is on if your product shows it.",
+      "manualStepIndex": 7,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "path": "customerProfile.is_new_ccbp_flow",
+      "op": "equals",
+      "expected": true,
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_8_list_of_providers_is_not_empty_user_can_pick_a_b_13",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "List of providers is not empty; user can pick a bank/biller to continue.",
+      "manualStepIndex": 8,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "apiIds": [
+        "ccbp.home_page",
+        "ccbp.providers_list"
+      ],
+      "path": "providers",
+      "op": "length_gt",
+      "expected": 0,
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_9_variants_screen_shows_popular_and_other_options__14",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "Variants screen shows popular and other options and major networks (e.g. Visa, Mastercard).",
+      "manualStepIndex": 9,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "apiIds": [
+        "ccbp.variants",
+        "ccbp.provider_details"
+      ],
+      "path": "variants.data.variants.popularVariants",
+      "op": "length_gt",
+      "expected": 0,
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_9_variants_screen_shows_popular_and_other_options__15",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "Variants screen shows popular and other options and major networks (e.g. Visa, Mastercard).",
+      "manualStepIndex": 9,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "apiIds": [
+        "ccbp.variants",
+        "ccbp.provider_details"
+      ],
+      "path": "variants.data.networks",
+      "op": "contains_all",
+      "expected": [
+        "Visa",
+        "Mastercard"
+      ],
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_10_details_match_the_chosen_biller_fields_required__16",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "Details match the chosen biller; fields required to fetch a bill (e.g. last 4 digits, mobile) are shown.",
+      "manualStepIndex": 10,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "path": "providerDetails.data.biller_id",
+      "op": "present",
+      "expected": true,
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_11_bill_is_found_due_amount_and_status_look_valid_u_17",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "Bill is found; due amount and status look valid; user is no longer on a completely empty bill list.",
+      "manualStepIndex": 11,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "apiIds": [
+        "ccbp.provider_details",
+        "ccbp.bill_fetch"
+      ],
+      "assertFn": "assertCcbpNewUserJourneyContracts",
+      "parseStatus": "parsed"
+    },
+    {
+      "ruleId": "TC-39_12_at_least_one_credit_card_bill_appears_for_this_u_18",
+      "caseId": "TC-39",
+      "layer": "journey",
+      "source": "parsedExpected",
+      "text": "At least one Credit Card bill appears for this user; it matches the bill they just fetched.",
+      "manualStepIndex": 12,
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "path": "utilitiesBills",
+      "op": "length_gte",
+      "expected": 1,
+      "parseStatus": "parsed"
+    }
+  ],
+  "unmappedRules": [],
+  "parseMeta": {
+    "totalExpected": 12,
+    "parsedCount": 12,
+    "parseRate": 1,
+    "targetMet": true
+  }
+}

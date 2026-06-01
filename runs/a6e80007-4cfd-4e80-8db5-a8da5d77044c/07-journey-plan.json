@@ -1,0 +1,136 @@
+{
+  "schemaVersion": "07-journey-plan-v1",
+  "productId": "bbps/ccbp",
+  "planner": "deterministic-v1",
+  "journeys": [
+    {
+      "journeyId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "persona": "new_user",
+      "sourceCaseIds": [
+        "TC-39"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "calls": [
+            "sendOtpStep",
+            "verifyOtpStep"
+          ],
+          "status": "resolved",
+          "writes": {
+            "authToken": "verifyRes.data.auth_token"
+          }
+        },
+        {
+          "order": 2,
+          "apiIds": [
+            "ccbp.customer_profile"
+          ],
+          "call": "customerProfileStep",
+          "status": "resolved",
+          "writes": {
+            "customerProfile": "customerProfile"
+          }
+        },
+        {
+          "order": 3,
+          "apiIds": [
+            "ccbp.dashboard_blocks"
+          ],
+          "call": "dashboardBlocksStep",
+          "status": "resolved",
+          "writes": {
+            "blocksBody": "blocksBody",
+            "utilityId": "utilityIdFromDashboardBlocks(blocksBody)"
+          }
+        },
+        {
+          "order": 4,
+          "apiIds": [
+            "ccbp.bureau_data"
+          ],
+          "call": "bureauDataStep",
+          "status": "resolved",
+          "writes": {
+            "bureau": "bureau"
+          }
+        },
+        {
+          "order": 5,
+          "apiIds": [
+            "ccbp.home_page"
+          ],
+          "call": "homePageStep",
+          "status": "resolved",
+          "writes": {
+            "homepage": "homepage"
+          }
+        },
+        {
+          "order": 6,
+          "apiIds": [
+            "ccbp.providers_list"
+          ],
+          "call": "providersListStep",
+          "status": "resolved",
+          "writes": {
+            "providers": "providers"
+          }
+        },
+        {
+          "order": 7,
+          "apiIds": [
+            "ccbp.variants"
+          ],
+          "call": "variantsStep",
+          "status": "resolved",
+          "writes": {
+            "variants": "variants"
+          }
+        },
+        {
+          "order": 8,
+          "apiIds": [
+            "ccbp.provider_details"
+          ],
+          "call": "providerDetailsStep",
+          "status": "resolved",
+          "writes": {
+            "providerDetails": "providerDetails"
+          }
+        },
+        {
+          "order": 9,
+          "apiIds": [
+            "ccbp.bill_fetch"
+          ],
+          "call": "billFetchNewUserStep",
+          "status": "resolved",
+          "writes": {
+            "billFetch": "billFetch"
+          }
+        },
+        {
+          "order": 10,
+          "apiIds": [
+            "ccbp.utilities_bills_v3"
+          ],
+          "call": "utilitiesBillsByCustomerIdStep",
+          "status": "resolved",
+          "writes": {
+            "utilitiesBills": "utilitiesBills"
+          },
+          "checkpoint": [
+            "assertCcbpNewUserJourneyContracts"
+          ]
+        }
+      ]
+    }
+  ],
+  "planMeta": {
+    "totalCalls": 11,
+    "resolvedCalls": 11,
+    "generateCalls": 0,
+    "targetMet": true
+  }
+}

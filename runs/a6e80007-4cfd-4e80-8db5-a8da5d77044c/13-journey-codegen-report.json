@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "13-journey-codegen-report-v1",
+  "productId": "bbps/ccbp",
+  "repoRoot": "/Users/amit/Downloads/personalProject/ai-automation/runs/a6e80007-4cfd-4e80-8db5-a8da5d77044c/generated",
+  "generated": [
+    {
+      "apiId": "bbps_ccbp_new_user_ccbp_new_user_journey",
+      "files": [
+        "tests/integration/bbps/ccbp/new-user/types.generated.ts",
+        "tests/integration/bbps/ccbp/new-user/journey.generated.ts",
+        "tests/integration/bbps/ccbp/new-user-journey.generated.spec.ts"
+      ]
+    }
+  ],
+  "skipped": [],
+  "errors": [],
+  "summary": {
+    "journeyCount": 1,
+    "generatedCount": 1,
+    "skippedCount": 0,
+    "errorCount": 0
+  }
+}

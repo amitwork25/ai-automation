@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "09-api-codegen-report-v1",
+  "productId": "bbps/ccbp",
+  "repoRoot": "/Users/amit/Downloads/personalProject/ai-automation/runs/a6e80007-4cfd-4e80-8db5-a8da5d77044c/generated",
+  "generated": [
+    {
+      "apiId": "eqx.update_customer_details",
+      "files": [
+        "src/models/eqx/update-customer-details.models.ts",
+        "src/schemas/eqx/update-customer-details-response.schema.json",
+        "src/schemas/eqx/update-customer-details-request.schema.json",
+        "src/services/eqx/EqxUpdateCustomerDetailsService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.dashboard_blocks",
+      "files": [
+        "src/models/eqx/bbps/ccbp/dashboard-blocks.models.ts",
+        "src/schemas/eqx/bbps/ccbp/dashboard-blocks-response.schema.json",
+        "src/schemas/eqx/bbps/ccbp/dashboard-blocks-request.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpDashboardBlocksService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.bureau_data",
+      "files": [
+        "src/models/eqx/bbps/ccbp/bureau-data.models.ts",
+        "src/schemas/eqx/bbps/ccbp/bureau-data-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpBureauDataService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.home_page",
+      "files": [
+        "src/models/eqx/bbps/ccbp/home-page.models.ts",
+        "src/schemas/eqx/bbps/ccbp/home-page-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpHomePageService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.homepage_reminders",
+      "files": [
+        "src/models/eqx/bbps/ccbp/homepage-reminders.models.ts",
+        "src/schemas/eqx/bbps/ccbp/homepage-reminders-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpHomepageRemindersService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.homepage_widgets",
+      "files": [
+        "src/models/eqx/bbps/ccbp/homepage-widgets.models.ts",
+        "src/schemas/eqx/bbps/ccbp/homepage-widgets-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpHomepageWidgetsService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.customer_profile",
+      "files": [
+        "src/models/eqx/bbps/ccbp/customer-profile.models.ts",
+        "src/schemas/eqx/bbps/ccbp/customer-profile-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpCustomerProfileService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.providers_list",
+      "files": [
+        "src/models/eqx/bbps/ccbp/providers-list.models.ts",
+        "src/schemas/eqx/bbps/ccbp/providers-list-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpProvidersListService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.variants",
+      "files": [
+        "src/models/eqx/bbps/ccbp/variants.models.ts",
+        "src/schemas/eqx/bbps/ccbp/variants-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpVariantsService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.provider_details",
+      "files": [
+        "src/models/eqx/bbps/ccbp/provider-details.models.ts",
+        "src/schemas/eqx/bbps/ccbp/provider-details-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpProviderDetailsService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.bill_fetch",
+      "files": [
+        "src/models/eqx/bbps/ccbp/bill-fetch.models.ts",
+        "src/schemas/eqx/bbps/ccbp/bill-fetch-response.schema.json",
+        "src/schemas/eqx/bbps/ccbp/bill-fetch-request.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpBillFetchService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.bill_fetch_consent",
+      "files": [
+        "src/models/eqx/bbps/ccbp/bill-fetch-consent.models.ts",
+        "src/schemas/eqx/bbps/ccbp/bill-fetch-consent-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpBillFetchConsentService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.utilities_bills_v3_null",
+      "files": [
+        "src/models/eqx/bbps/ccbp/utilities-bills-v3-null.models.ts",
+        "src/schemas/eqx/bbps/ccbp/utilities-bills-v3-null-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpUtilitiesBillsV3NullService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.utilities_bills_v3",
+      "files": [
+        "src/models/eqx/bbps/ccbp/utilities-bills-v3.models.ts",
+        "src/schemas/eqx/bbps/ccbp/utilities-bills-v3-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpUtilitiesBillsV3Service.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.utilities_bills_v1",
+      "files": [
+        "src/models/eqx/bbps/ccbp/utilities-bills-v1.models.ts",
+        "src/schemas/eqx/bbps/ccbp/utilities-bills-v1-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpUtilitiesBillsV1Service.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.transactions",
+      "files": [
+        "src/models/eqx/bbps/ccbp/transactions.models.ts",
+        "src/schemas/eqx/bbps/ccbp/transactions-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpTransactionsService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.orders_create",
+      "files": [
+        "src/models/eqx/bbps/ccbp/orders-create.models.ts",
+        "src/schemas/eqx/bbps/ccbp/orders-create-response.schema.json",
+        "src/schemas/eqx/bbps/ccbp/orders-create-request.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpOrdersCreateService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.orders_create_auto_attempt",
+      "files": [
+        "src/models/eqx/bbps/ccbp/orders-create-auto-attempt.models.ts",
+        "src/schemas/eqx/bbps/ccbp/orders-create-auto-attempt-response.schema.json",
+        "src/schemas/eqx/bbps/ccbp/orders-create-auto-attempt-request.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpOrdersCreateAutoAttemptService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.checkout_options",
+      "files": [
+        "src/models/eqx/bbps/ccbp/checkout-options.models.ts",
+        "src/schemas/eqx/bbps/ccbp/checkout-options-response.schema.json",
+        "src/schemas/eqx/bbps/ccbp/checkout-options-request.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpCheckoutOptionsService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.checkout_attempt",
+      "files": [
+        "src/models/eqx/bbps/ccbp/checkout-attempt.models.ts",
+        "src/schemas/eqx/bbps/ccbp/checkout-attempt-response.schema.json",
+        "src/schemas/eqx/bbps/ccbp/checkout-attempt-request.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpCheckoutAttemptService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.payments_callback",
+      "files": [
+        "src/models/eqx/bbps/ccbp/payments-callback.models.ts",
+        "src/schemas/eqx/bbps/ccbp/payments-callback-response.schema.json",
+        "src/schemas/eqx/bbps/ccbp/payments-callback-request.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpPaymentsCallbackService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.billdesk_webhook",
+      "files": [
+        "src/models/eqx/bbps/ccbp/billdesk-webhook.models.ts",
+        "src/schemas/eqx/bbps/ccbp/billdesk-webhook-response.schema.json",
+        "src/schemas/eqx/bbps/ccbp/billdesk-webhook-request.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpBilldeskWebhookService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.complaints",
+      "files": [
+        "src/models/eqx/bbps/ccbp/complaints.models.ts",
+        "src/schemas/eqx/bbps/ccbp/complaints-response.schema.json",
+        "src/schemas/eqx/bbps/ccbp/complaints-request.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpComplaintsService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.claim_gold_reward",
+      "files": [
+        "src/models/eqx/bbps/ccbp/claim-gold-reward.models.ts",
+        "src/schemas/eqx/bbps/ccbp/claim-gold-reward-response.schema.json",
+        "src/schemas/eqx/bbps/ccbp/claim-gold-reward-request.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpClaimGoldRewardService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.validate_gold_reward",
+      "files": [
+        "src/models/eqx/bbps/ccbp/validate-gold-reward.models.ts",
+        "src/schemas/eqx/bbps/ccbp/validate-gold-reward-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpValidateGoldRewardService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.bill_status_get",
+      "files": [
+        "src/models/eqx/bbps/ccbp/bill-status-get.models.ts",
+        "src/schemas/eqx/bbps/ccbp/bill-status-get-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpBillStatusGetService.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.bill_status_patch",
+      "files": [
+        "src/models/eqx/bbps/ccbp/bill-status-patch.models.ts",
+        "src/schemas/eqx/bbps/ccbp/bill-status-patch-response.schema.json",
+        "src/services/eqx/bbps/ccbp/CcbpBillStatusPatchService.ts"
+      ]
+    }
+  ],
+  "skipped": [],
+  "errors": [],
+  "summary": {
+    "totalApis": 27,
+    "generatedCount": 27,
+    "skippedCount": 0,
+    "errorCount": 0
+  }
+}

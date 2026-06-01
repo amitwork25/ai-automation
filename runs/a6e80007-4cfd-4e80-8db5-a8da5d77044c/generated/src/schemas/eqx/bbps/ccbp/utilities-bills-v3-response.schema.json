@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "GET /bbps/v3/billDesk/utilities/{customerId}/bills success body",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/CcbpBillDeskUtilityBillRow"
+  }
+}

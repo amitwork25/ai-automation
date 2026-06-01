@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "POST /bbps/v1/billDesk/bbps/v2/orders/create success body",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string"
+    },
+    "status_code": {
+      "type": "number"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "checkout_token": {
+          "type": "string"
+        },
+        "options_url": {
+          "type": "string"
+        },
+        "attempts_url": {
+          "type": "string"
+        },
+        "redirect_url": {
+          "type": "string"
+        },
+        "status_page_url": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

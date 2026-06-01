@@ -1,0 +1,168 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/auth/send-otp": {
+      "post": {
+        "operationId": "auth.send_otp",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendOtpRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendOtpResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/verify-otp": {
+      "post": {
+        "operationId": "auth.verify_otp",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyOtpRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifyOtpResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/ccbp/bill-fetch": {
+      "post": {
+        "operationId": "ccbp.bill_fetch",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BillFetchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillFetchResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bbps/v1/ccbp/bills": {
+      "get": {
+        "operationId": "ccbp.bills",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BillsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SendOtpRequest": {
+        "type": "object",
+        "required": ["mobile"],
+        "properties": {
+          "mobile": {
+            "type": "string"
+          }
+        }
+      },
+      "SendOtpResponse": {
+        "type": "object",
+        "properties": {
+          "request_id": {
+            "type": "string"
+          }
+        }
+      },
+      "VerifyOtpRequest": {
+        "type": "object",
+        "required": ["otp", "request_id"],
+        "properties": {
+          "otp": {
+            "type": "string"
+          },
+          "request_id": {
+            "type": "string"
+          }
+        }
+      },
+      "VerifyOtpResponse": {
+        "type": "object",
+        "properties": {
+          "auth_token": {
+            "type": "string"
+          }
+        }
+      },
+      "BillFetchRequest": {
+        "type": "object",
+        "required": ["billerId"],
+        "properties": {
+          "billerId": {
+            "type": "string"
+          }
+        }
+      },
+      "BillFetchResponse": {
+        "type": "object",
+        "properties": {
+          "validation_id": {
+            "type": "string"
+          },
+          "bill_amount": {
+            "type": "number"
+          }
+        }
+      },
+      "BillsResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}

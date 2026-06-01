@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "00b-llm-summary-v1",
+  "productId": "bbps/ccbp",
+  "provider": "gemini",
+  "llmConfigured": true,
+  "totalLlmCalls": 2,
+  "steps": [
+    {
+      "step": "2m-linker-fallback",
+      "invoked": true,
+      "provider": "gemini",
+      "inputCount": 1,
+      "outputCount": 1,
+      "artifact": "04b-linker-llm-report.json"
+    },
+    {
+      "step": "5g-rule-gaps",
+      "invoked": false,
+      "provider": "gemini"
+    },
+    {
+      "step": "10b-service-test-enrich",
+      "invoked": true,
+      "provider": "gemini",
+      "inputCount": 8,
+      "outputCount": 5,
+      "artifact": "10b-service-test-llm-report.json"
+    },
+    {
+      "step": "12-custom-asserts",
+      "invoked": false,
+      "provider": "gemini"
+    }
+  ]
+}

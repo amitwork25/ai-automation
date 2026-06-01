@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "17-traceability-v1",
+  "productId": "bbps/ccbp",
+  "runId": "a6e80007-4cfd-4e80-8db5-a8da5d77044c",
+  "rows": [
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_1_user_can_start_the_journey_without_already_havin_na",
+      "assertFn": "non_automatable",
+      "specStep": "step-1",
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_2_login_succeeds_session_is_established_1",
+      "assertFn": "expect.equals",
+      "specStep": "step-2",
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_3_update_is_accepted_user_can_proceed_no_blocking__2",
+      "assertFn": "assertUpdateCustomerDetailsAccepted",
+      "specStep": "step-3",
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_4_bbps_credit_card_entry_is_available_user_lands_o_na",
+      "assertFn": "non_automatable",
+      "specStep": "order-2",
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_5_no_saved_cards_yet_empty_list_0_total_due_stashg_4",
+      "assertFn": "expect.length.zero",
+      "specStep": "step-5",
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_5_no_saved_cards_yet_empty_list_0_total_due_stashg_5",
+      "assertFn": "expect.equals",
+      "specStep": "step-5",
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_5_no_saved_cards_yet_empty_list_0_total_due_stashg_6",
+      "assertFn": "expect.equals",
+      "specStep": "step-5",
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_5_no_saved_cards_yet_empty_list_0_total_due_stashg_7",
+      "assertFn": "expect.equals",
+      "specStep": "step-5",
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_6_screen_loads_successfully_but_no_bureau_sourced__8",
+      "assertFn": "expect.length.zero",
+      "specStep": "step-6",
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_7_profile_shows_a_real_user_name_email_mobile_new__9",
+      "assertFn": "expect.gt",
+      "specStep": "step-7",
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_7_profile_shows_a_real_user_name_email_mobile_new__10",
+      "assertFn": "expect.present",
+      "specStep": "step-7",
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_7_profile_shows_a_real_user_name_email_mobile_new__11",
+      "assertFn": "expect.present",
+      "specStep": "step-7",
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_7_profile_shows_a_real_user_name_email_mobile_new__12",
+      "assertFn": "expect.equals",
+      "specStep": "step-7",
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_8_list_of_providers_is_not_empty_user_can_pick_a_b_13",
+      "assertFn": "expect.length.gt",
+      "specStep": "order-5",
+      "apiId": "ccbp.home_page"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_9_variants_screen_shows_popular_and_other_options__14",
+      "assertFn": "expect.length.gt",
+      "specStep": "order-7",
+      "apiId": "ccbp.variants"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_9_variants_screen_shows_popular_and_other_options__15",
+      "assertFn": "expect.networks.contains",
+      "specStep": "order-7",
+      "apiId": "ccbp.variants"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_10_details_match_the_chosen_biller_fields_required__16",
+      "assertFn": "expect.present",
+      "specStep": "step-10",
+      "apiId": "ccbp.customer_profile"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_11_bill_is_found_due_amount_and_status_look_valid_u_17",
+      "assertFn": "assertCcbpNewUserJourneyContracts",
+      "specStep": "order-8",
+      "apiId": "ccbp.provider_details"
+    },
+    {
+      "manualCaseId": "TC-39",
+      "ruleId": "TC-39_12_at_least_one_credit_card_bill_appears_for_this_u_18",
+      "assertFn": "expect.length.gte",
+      "specStep": "step-12",
+      "apiId": "ccbp.customer_profile"
+    }
+  ]
+}

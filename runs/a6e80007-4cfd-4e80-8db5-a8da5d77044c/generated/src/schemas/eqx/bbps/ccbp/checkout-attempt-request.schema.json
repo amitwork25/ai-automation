@@ -1,0 +1,5 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "POST /stashpayments/v2/attempts request body",
+  "type": "object"
+}

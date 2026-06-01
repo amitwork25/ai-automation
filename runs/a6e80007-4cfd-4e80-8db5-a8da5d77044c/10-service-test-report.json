@@ -1,0 +1,177 @@
+{
+  "schemaVersion": "10-service-test-report-v1",
+  "productId": "bbps/ccbp",
+  "repoRoot": "/Users/amit/Downloads/personalProject/ai-automation/runs/a6e80007-4cfd-4e80-8db5-a8da5d77044c/generated",
+  "generated": [
+    {
+      "apiId": "eqx.update_customer_details",
+      "files": [
+        "tests/service/eqx/update-customer-details/update-customer-details.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.dashboard_blocks",
+      "files": [
+        "tests/service/bbps/ccbp/dashboard-blocks/dashboard-blocks.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.bureau_data",
+      "files": [
+        "tests/service/bbps/ccbp/bureau-data/bureau-data.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.home_page",
+      "files": [
+        "tests/service/bbps/ccbp/home-page/home-page.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.homepage_reminders",
+      "files": [
+        "tests/service/bbps/ccbp/homepage-reminders/homepage-reminders.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.homepage_widgets",
+      "files": [
+        "tests/service/bbps/ccbp/homepage-widgets/homepage-widgets.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.customer_profile",
+      "files": [
+        "tests/service/bbps/ccbp/customer-profile/customer-profile.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.providers_list",
+      "files": [
+        "tests/service/bbps/ccbp/providers-list/providers-list.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.variants",
+      "files": [
+        "tests/service/bbps/ccbp/variants/variants.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.provider_details",
+      "files": [
+        "tests/service/bbps/ccbp/provider-details/provider-details.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.bill_fetch",
+      "files": [
+        "tests/service/bbps/ccbp/bill-fetch/bill-fetch.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.bill_fetch_consent",
+      "files": [
+        "tests/service/bbps/ccbp/bill-fetch-consent/bill-fetch-consent.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.utilities_bills_v3_null",
+      "files": [
+        "tests/service/bbps/ccbp/utilities-bills-v3-null/utilities-bills-v3-null.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.utilities_bills_v3",
+      "files": [
+        "tests/service/bbps/ccbp/utilities-bills-v3/utilities-bills-v3.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.utilities_bills_v1",
+      "files": [
+        "tests/service/bbps/ccbp/utilities-bills-v1/utilities-bills-v1.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.transactions",
+      "files": [
+        "tests/service/bbps/ccbp/transactions/transactions.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.orders_create",
+      "files": [
+        "tests/service/bbps/ccbp/orders-create/orders-create.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.orders_create_auto_attempt",
+      "files": [
+        "tests/service/bbps/ccbp/orders-create-auto-attempt/orders-create-auto-attempt.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.checkout_options",
+      "files": [
+        "tests/service/bbps/ccbp/checkout-options/checkout-options.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.checkout_attempt",
+      "files": [
+        "tests/service/bbps/ccbp/checkout-attempt/checkout-attempt.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.payments_callback",
+      "files": [
+        "tests/service/bbps/ccbp/payments-callback/payments-callback.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.billdesk_webhook",
+      "files": [
+        "tests/service/bbps/ccbp/billdesk-webhook/billdesk-webhook.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.complaints",
+      "files": [
+        "tests/service/bbps/ccbp/complaints/complaints.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.claim_gold_reward",
+      "files": [
+        "tests/service/bbps/ccbp/claim-gold-reward/claim-gold-reward.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.validate_gold_reward",
+      "files": [
+        "tests/service/bbps/ccbp/validate-gold-reward/validate-gold-reward.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.bill_status_get",
+      "files": [
+        "tests/service/bbps/ccbp/bill-status-get/bill-status-get.service.spec.ts"
+      ]
+    },
+    {
+      "apiId": "ccbp.bill_status_patch",
+      "files": [
+        "tests/service/bbps/ccbp/bill-status-patch/bill-status-patch.service.spec.ts"
+      ]
+    }
+  ],
+  "skipped": [],
+  "errors": [],
+  "summary": {
+    "totalApis": 27,
+    "generatedCount": 27,
+    "skippedCount": 0,
+    "errorCount": 0
+  }
+}

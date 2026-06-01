@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "POST /bbps/v1/billDesk/bbps/bill-fetch success body",
+  "type": "object",
+  "properties": {
+    "customer_id": {
+      "type": "number"
+    },
+    "validation_id": {
+      "type": "string"
+    },
+    "biller_id": {
+      "type": "string"
+    },
+    "utility_id": {
+      "type": "number"
+    },
+    "bill_amount": {
+      "type": "number"
+    },
+    "bill_status": {
+      "type": "string"
+    },
+    "account_no": {
+      "type": "string"
+    },
+    "display_account_no": {
+      "type": "string"
+    },
+    "bill_number": {
+      "type": "string"
+    },
+    "provider_name": {
+      "type": "string"
+    }
+  }
+}

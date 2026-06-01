@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "POST /bbps/v1/billDesk/bbps/bill-fetch request body",
+  "type": "object",
+  "required": [
+    "billerId",
+    "authenticators",
+    "billFetchApproval",
+    "foundViaSms"
+  ],
+  "properties": {
+    "billerId": {
+      "type": "string"
+    },
+    "authenticators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "parameter_name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "billFetchApproval": {
+      "type": "number"
+    },
+    "foundViaSms": {
+      "type": "boolean"
+    },
+    "isNewFlow": {
+      "type": "boolean"
+    }
+  }
+}

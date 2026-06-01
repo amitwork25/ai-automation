@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "requestId": "St8TCtitAP",
+  "response": [
+    {
+      "test_id": 39,
+      "name": "New user CCBP credit card journey",
+      "project_id": 3,
+      "testsuite_id": 3,
+      "tags": [],
+      "pre_conditions": "",
+      "steps": "Open the app as a new Credit Card BBPS user (no saved card yet).\r\nUser can start the journey without already having a paid bill on the home list.\r\nLog in with mobile and complete OTP.\r\nLogin succeeds; session is established.\r\nComplete profile / details step the app needs before BBPS (name, email, etc., as your onboarding shows).\r\nUpdate is accepted; user can proceed (no blocking validation error).\r\nOpen BBPS from the dashboard / entry you use for bill pay.\r\nBBPS (Credit Card) entry is available; user lands on the Credit Card BBPS area.\r\nView Credit Card home for a new user.\r\nNo saved cards yet (empty list), ₹0 total due, StashGuard off, no gold reward claimed — a clear “add / set up” style empty state.\r\nOpen bureau / suggested cards (if your UI shows this step).\r\nScreen loads successfully but no bureau-sourced cards yet for this new user (empty state).\r\nOpen customer / BBPS profile in app terms.\r\nProfile shows a real user (name, email, mobile); new CCBP flow flag is on if your product shows it.\r\nBrowse supported banks / billers for Credit Card BBPS.\r\nList of providers is not empty; user can pick a bank/biller to continue.\r\nPick card type / network (Visa, Mastercard, etc.).\r\nVariants screen shows popular and other options and major networks (e.g. Visa, Mastercard).\r\nOpen biller details for the chosen bank.\r\nDetails match the chosen biller; fields required to fetch a bill (e.g. last 4 digits, mobile) are shown.\r\nEnter card last 4 and registered mobile (and any other asked fields) and fetch bill.\r\nBill is found; due amount and status look valid; user is no longer on a completely empty bill list.\r\nView “my bills” / utilities list after fetch.\r\nAt least one Credit Card bill appears for this user; it matches the bill they just fetched.",
+      "expected_result": "Open the app as a new Credit Card BBPS user (no saved card yet).\r\nUser can start the journey without already having a paid bill on the home list.\r\nLog in with mobile and complete OTP.\r\nLogin succeeds; session is established.\r\nComplete profile / details step the app needs before BBPS (name, email, etc., as your onboarding shows).\r\nUpdate is accepted; user can proceed (no blocking validation error).\r\nOpen BBPS from the dashboard / entry you use for bill pay.\r\nBBPS (Credit Card) entry is available; user lands on the Credit Card BBPS area.\r\nView Credit Card home for a new user.\r\nNo saved cards yet (empty list), ₹0 total due, StashGuard off, no gold reward claimed — a clear “add / set up” style empty state.\r\nOpen bureau / suggested cards (if your UI shows this step).\r\nScreen loads successfully but no bureau-sourced cards yet for this new user (empty state).\r\nOpen customer / BBPS profile in app terms.\r\nProfile shows a real user (name, email, mobile); new CCBP flow flag is on if your product shows it.\r\nBrowse supported banks / billers for Credit Card BBPS.\r\nList of providers is not empty; user can pick a bank/biller to continue.\r\nPick card type / network (Visa, Mastercard, etc.).\r\nVariants screen shows popular and other options and major networks (e.g. Visa, Mastercard).\r\nOpen biller details for the chosen bank.\r\nDetails match the chosen biller; fields required to fetch a bill (e.g. last 4 digits, mobile) are shown.\r\nEnter card last 4 and registered mobile (and any other asked fields) and fetch bill.\r\nBill is found; due amount and status look valid; user is no longer on a completely empty bill list.\r\nView “my bills” / utilities list after fetch.\r\nAt least one Credit Card bill appears for this user; it matches the bill they just fetched.",
+      "endpoint": "null\r\nnull\r\nnull\r\nGET /bbps/v1/billDesk/customer-profile,GET /bbps/v3/billDesk/utilities/61360/bills?endPoint=61360%2Fbills,GET /bbps/v1/billDesk/bbps/home-page?utilityId=42,GET /bbps/v1/billDesk/homepage/bureauData\r\nnull\r\nnull\r\nnull\r\nGET /bbps/v1/billDesk/bbps/home-page?utilityId=42,GET /bbps/v1/billDesk/utilities/42/providers?endPoint=%2F42%2Fproviders\r\nGET /bbps/v1/billDesk/bbps/variants?billerId=BANK00000NATKB,GET /bbps/v1/billDesk/provider/BANK00000NATKB\r\nnull\r\nPOST /bbps/v1/billDesk/bbps/bill-fetch,GET /bbps/v3/billDesk/utilities/61361/bills?endPoint=61361%2Fbills,GET /bbps/v1/billDesk/bbps/home-page?utilityId=42\r\nnull",
+      "priority": "HIGH",
+      "automation_status": {
+        "ios_automation_status": "",
+        "trace_automation_status": "",
+        "visual_automation_status": "",
+        "android_automation_status": "",
+        "backend_automation_status": "",
+        "essence_automation_status": ""
+      },
+      "sanity": false,
+      "regression": false,
+      "sanity_platform": [],
+      "regression_platform": [],
+      "created_at": "1775730145464",
+      "updated_at": "1775730145464",
+      "created_by": "sparsh.pandey@stashfin.com",
+      "updated_by": "sparsh.pandey@stashfin.com",
+      "remarks": "",
+      "reference": "",
+      "attachments": [],
+      "is_deleted": false,
+      "visible": true,
+      "reviewers_id": []
+    }
+  ]
+}

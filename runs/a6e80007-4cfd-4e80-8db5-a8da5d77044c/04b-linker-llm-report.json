@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "04b-linker-llm-report-v1",
+  "productId": "bbps/ccbp",
+  "provider": "gemini",
+  "inputCount": 1,
+  "acceptedCount": 1,
+  "mappings": [
+    {
+      "caseId": "TC-39",
+      "manualStepIndex": 11,
+      "manualText": "Enter card last 4 and registered mobile (and any other asked fields) and fetch bill.",
+      "apiIds": [
+        "ccbp.provider_details",
+        "ccbp.bill_fetch"
+      ],
+      "confidence": 0.8,
+      "matchMethod": "llm:fallback",
+      "reason": "The step involves entering details to fetch a bill, which aligns with first getting provider details (to know what authenticators are needed) and then performing the bill fetch operation."
+    }
+  ],
+  "modelUsed": "gemini-2.5-flash-lite"
+}

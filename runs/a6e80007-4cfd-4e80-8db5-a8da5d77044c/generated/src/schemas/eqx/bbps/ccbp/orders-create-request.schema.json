@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "POST /bbps/v1/billDesk/bbps/v2/orders/create request body",
+  "type": "object",
+  "required": [
+    "billerId",
+    "account_no",
+    "amount",
+    "category",
+    "offerId",
+    "validationId",
+    "customer_params",
+    "isNewFlow"
+  ],
+  "properties": {
+    "billerId": {
+      "type": "string"
+    },
+    "account_no": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "offerId": {
+      "type": "number"
+    },
+    "validationId": {
+      "type": "string"
+    },
+    "customer_params": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "isNewFlow": {
+      "type": "boolean"
+    }
+  }
+}
