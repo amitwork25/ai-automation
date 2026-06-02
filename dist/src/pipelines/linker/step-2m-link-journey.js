@@ -98,7 +98,7 @@ function hasDependencyPrior(dependencyGraph, previousApiId, nextApiId) {
     }
     return dependencyGraph.edges.some((edge) => edge.from === previousApiId && edge.to === nextApiId);
 }
-function topologicalSortSubset(apiIds, dependencyGraph) {
+export function topologicalSortSubset(apiIds, dependencyGraph) {
     const uniqueApiIds = [...new Set(apiIds)];
     const apiIdSet = new Set(uniqueApiIds);
     const edges = dependencyGraph.edges.filter((edge) => apiIdSet.has(edge.from) && apiIdSet.has(edge.to));

@@ -19,6 +19,12 @@ export async function serviceTestCodegenNode(state, artifactStore) {
         artifacts: {
             ...state.artifacts,
             [artifactName]: artifactPath
+        },
+        flags: {
+            unmappedRuleCount: state.flags?.unmappedRuleCount ?? 0,
+            pendingCustomCount: state.flags?.pendingCustomCount ?? 0,
+            linkerLlmInvoked: state.flags?.linkerLlmInvoked ?? false,
+            serviceTestLlmInvoked: state.flags?.serviceTestLlmInvoked ?? false
         }
     };
 }

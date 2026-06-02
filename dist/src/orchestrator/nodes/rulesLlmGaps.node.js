@@ -21,7 +21,10 @@ export async function rulesLlmGapsNode(state, artifactStore) {
             "05g-rule-gaps-report.json": reportPath
         },
         flags: {
-            unmappedRuleCount: report.remainingCount
+            unmappedRuleCount: report.remainingCount,
+            pendingCustomCount: state.flags?.pendingCustomCount ?? 0,
+            linkerLlmInvoked: state.flags?.linkerLlmInvoked ?? false,
+            serviceTestLlmInvoked: state.flags?.serviceTestLlmInvoked ?? false
         }
     };
 }

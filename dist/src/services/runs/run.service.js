@@ -20,8 +20,8 @@ export class RunService {
         if (input.manualTestCases === undefined || input.manualTestCases === null) {
             throw new Error("manualTestCases is required");
         }
-        if (!input.apiContracts && !input.postmanCollection) {
-            throw new Error("apiContracts or postmanCollection is required");
+        if (!input.apiContracts && !input.postmanCollection && !input.openApiSpec) {
+            throw new Error("apiContracts, postmanCollection, or openApiSpec is required");
         }
         const runId = randomUUID();
         const productId = input.productId?.trim() || "unknown-product";
@@ -44,6 +44,7 @@ export class RunService {
                 mappingThreshold: input.mappingThreshold ?? 0.95,
                 strictMapping: input.strictMapping ?? true,
                 mode: input.mode ?? "greenfield",
+                automationCodegenMode: input.automationCodegenMode ?? "both",
                 useVectorRetrieval: input.useVectorRetrieval ?? false,
                 llmProfile: input.llmProfile ?? "standard"
             },

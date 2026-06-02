@@ -1,3 +1,6 @@
+import { loadLlmConfig } from "../../config/llm.config.js";
+import { callGeminiJsonChatWithFallback } from "./gemini-json.client.js";
+import { loadLlmSystemPrompt } from "./load-llm-prompt.js";
 function customAssertFunctionName(ruleId) {
     return `assertCustom_${ruleId.replace(/[^a-zA-Z0-9]+/g, "_")}`;
 }
@@ -69,6 +72,28 @@ export class HeuristicCustomAssertLlmClient {
         });
     }
 }
+export class GeminiCustomAssertLlmClient {
+    apiKey;
+    model;
+    constructor(apiKey, model) {
+        this.apiKey = apiKey;
+        this.model = model;
+    }
+    async generateCustomAsserts(input) {
+        const llmProvider = loadLlmConfig().provider;
+        const { data } = await callGeminiJsonChatWithFallback({
+            apiKey: this.apiKey,
+            model: this.model,
+            system: loadLlmSystemPrompt(),
+            user: JSON.stringify({ task: "step-12-custom-asserts", llmProvider, ...input })
+        });
+        const parsed = data;
+        return (parsed.generations ?? []).map((entry) => ({
+            ...entry,
+            provider: entry.provider ?? llmProvider
+        }));
+    }
+}
 export class OpenAiCustomAssertLlmClient {
     apiKey;
     model;
@@ -77,6 +102,7 @@ export class OpenAiCustomAssertLlmClient {
         this.model = model;
     }
     async generateCustomAsserts(input) {
+        const llmProvider = loadLlmConfig().provider;
         const response = await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
             headers: {
@@ -90,11 +116,11 @@ export class OpenAiCustomAssertLlmClient {
                 messages: [
                     {
                         role: "system",
-                        content: "Generate TypeScript custom assert functions for Playwright journey context objects. Return JSON { generations: CustomAssertGeneration[] } where each item has ruleId, functionName, body (full export function source), provider='openai'. Use ctx: Record<string, unknown> and throw Error on failure."
+                        content: loadLlmSystemPrompt()
                     },
                     {
                         role: "user",
-                        content: JSON.stringify(input)
+                        content: JSON.stringify({ task: "step-12-custom-asserts", llmProvider, ...input })
                     }
                 ]
             })
@@ -108,13 +134,19 @@ export class OpenAiCustomAssertLlmClient {
             throw new Error("OpenAI custom-assert call returned empty content");
         }
         const parsed = JSON.parse(content);
-        return (parsed.generations ?? []).map((entry) => ({ ...entry, provider: "openai" }));
+        return (parsed.generations ?? []).map((entry) => ({
+            ...entry,
+            provider: entry.provider ?? llmProvider
+        }));
     }
 }
 export function createCustomAssertLlmClient() {
-    const apiKey = process.env.OPENAI_API_KEY?.trim();
-    if (apiKey) {
-        return new OpenAiCustomAssertLlmClient(apiKey);
+    const config = loadLlmConfig();
+    if (config.provider === "gemini" && config.geminiApiKey) {
+        return new GeminiCustomAssertLlmClient(config.geminiApiKey, config.geminiModel);
+    }
+    if (config.provider === "openai" && config.openaiApiKey) {
+        return new OpenAiCustomAssertLlmClient(config.openaiApiKey, config.openaiModel);
     }
     return new HeuristicCustomAssertLlmClient();
 }
